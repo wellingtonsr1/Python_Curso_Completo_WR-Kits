@@ -1,0 +1,1 @@
+O Python é uma linguagem de programação de alto nível. Isto é, ele traz diversos níveis de abstração para tornar o processo de programação mais simples, rápido e direto. Nesta videoaula, vamos falar um pouco mais sobre o que são estes níveis de programação e como o Python se encaixa nisto.

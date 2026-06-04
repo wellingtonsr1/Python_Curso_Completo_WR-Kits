@@ -1,0 +1,1 @@
+Muito se fala de Python hoje em dia, principalmente por ter se tornado a linguagem escolhida para carregar a Inteligência Artificial. Mas, o que realmente é o Python, como ele nasceu e qual o seu foco? Vamos falar um pouco sobre isto nesta videoaula.​

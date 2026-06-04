@@ -1,0 +1,1 @@
+Como toda linguagem de programação com orientação a objetos, o Python suporta bibliotecas e possui uma lista padrão de bibliotecas que já estão disponíveis por padrão. Esta lista, é chamada de Standard Library. É justamente sobre ela que vamos falar nesta videoaula.

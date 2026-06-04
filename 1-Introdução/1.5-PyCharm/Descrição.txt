@@ -1,0 +1,1 @@
+Programar em qualquer linguagem de programação vai exigir um pouco mais do que o interpretador e compilador, será necessário uma IDE. Para este curso, de modo a simplificar o preparo do ambiente, nos vamos utilizar o PyCharm como ambiente de desenvolvimento Python.
