@@ -1,0 +1,10 @@
+Variáveis são elementos de memória onde colocamos informação para ser manipulada. Existem vários tipos de variáveis, como inteiro, ponto flutuante e string. Nesta videoaula, vamos aprender como são organizadas as variáveis dentro do Python.
+
+
+
+O que você aprenderá nesta videoaula:
+
+O que são variáveis
+Como as variáveis são organizadas
+Tipos de variáveis
+Consumo de memória (variáveis no Python são como objetos)​
