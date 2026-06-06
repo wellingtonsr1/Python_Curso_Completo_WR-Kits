@@ -1,0 +1,2 @@
+Todas as linguagens de programação possuem alguma estrutura para tomada de decisão, no Python, não seria diferente. Nesta aula, vamos aprender a utilizar o if.
+
