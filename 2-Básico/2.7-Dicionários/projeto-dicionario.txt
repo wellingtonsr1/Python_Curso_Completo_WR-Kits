@@ -1,0 +1,65 @@
+Um dos melhores projetos para praticar dicionários é um 
+Sistema de Cadastro de Alunos.
+
+Funcionalidades:
+----------------
+1. Cadastrar aluno
+2. Listar alunos
+3. Buscar aluno
+4. Exibir aprovados
+
+
+Conceitos praticados:
+---------------------
+Criação de dicionários
+Acesso por chave
+Alteração de valores
+Listas + dicionários
+Laços for
+Condições if
+Funções
+
+
+Outros projetos excelentes para dicionários:
+Agenda de Contatos
+------------------
+Operações:
+Adicionar contato
+Buscar contato
+Remover contato
+
+Controle de Estoque
+-------------------
+Operações:
+Entrada de produtos
+Saída de produtos
+Consulta de estoque
+
+Sistema Bancário Simples
+------------------------
+Operações:
+Depositar
+Sacar
+Consultar saldo
+
+Cadastro de Equipamentos de Rede
+--------------------------------
+Funcionalidades:
+Cadastrar equipamentos
+Buscar por IP
+Buscar por hostname
+Atualizar dados
+Gerar inventário
+
+Projeto mais completo: Sistema de Inventário de Rede
+----------------------------------------------------
+Com ele você pratica:
+Dicionários aninhados
+CRUD (Criar, Ler, Atualizar e Excluir)
+Busca de informações
+Estruturas de dados usadas em automação de redes e DevOps.
+
+
+
+Os dicionários são perfeitos para armazenar dados 
+organizados por chave → valor.

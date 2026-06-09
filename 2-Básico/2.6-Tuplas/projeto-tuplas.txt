@@ -1,0 +1,43 @@
+Um excelente projeto para praticar tuplas é um Sistema de Catálogo 
+de Produtos.
+
+Funcionalidades
+Listar produtos.
+Pesquisar produto pelo nome.
+Exibir o produto mais caro.
+Exibir o produto mais barato.
+Calcular o valor total do estoque.
+
+Outros projetos interessantes com tuplas
+1. Agenda de Coordenadas
+Prática:
+Busca por cidade.
+Cálculo de distância simples.
+
+2. Sistema de Notas
+Prática:
+Média.
+Maior nota.
+Ranking.
+
+3. Tabela do Campeonato
+Onde:
+Nome
+Pontos
+Jogos
+Vitórias
+Derrotas
+
+Prática:
+Classificação.
+Time líder.
+Time com mais vitórias.
+
+4. Banco de Dados de Filmes
+Prática:
+Filtrar por gênero.
+Filtrar por ano.
+Contagem de filmes.
+
+Como as tuplas são imutáveis, elas são ideais para armazenar dados 
+que não devem ser alterados após serem criados.
