@@ -1,0 +1,57 @@
+Um ótimo projeto para praticar conjuntos (set) é um Sistema de Controle de Participantes de Eventos.
+Os conjuntos são ideais quando você precisa garantir que não existam elementos duplicados.
+
+Funcionalidades
+1. Adicionar participante
+2. Listar participantes
+3. Remover participante
+4. Verificar inscrição
+
+Conceitos praticados
+add()
+remove()
+discard()
+in
+Iteração com for
+Eliminação automática de duplicidades
+
+Projetos mais interessantes com conjuntos
+1. Controle de IPs Únicos
+
+Muito útil para quem estuda redes.
+
+Funcionalidades:
+Registrar IPs que acessaram um servidor.
+Contar quantos IPs únicos acessaram.
+Verificar se um IP já acessou.
+
+2. Analisador de Palavras Repetidas
+Prática:
+Remoção de duplicatas.
+Processamento de texto.
+
+3. Amigos em Comum
+Prática:
+Interseção (&)
+União (|)
+Diferença (-)
+
+4. Controle de Tecnologias Aprendidas
+Operações:
+Adicionar novas tecnologias.
+Verificar se já foram estudadas.
+Mostrar lista sem repetições.
+
+
+Projeto desafiador
+Sistema de Inventário de Rede
+
+Imagine que você monitora dispositivos conectados.
+
+Descobrir:
+
+Novos dispositivos
+Dispositivos removidos
+Dispositivos permanentes
+
+Esse projeto é excelente porque usa as operações mais importantes dos conjuntos e se aproxima de situações reais de administração de redes.

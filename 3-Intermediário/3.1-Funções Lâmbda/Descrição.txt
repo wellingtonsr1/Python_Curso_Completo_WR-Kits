@@ -1,0 +1,1 @@
+Se você já programa em alguma outra linguagem certamente sabe o que é uma função. No Python, nós temos um subtipo de função, que é a função lambda, que permite a criação de pequenas rotinas localizadas dentro do seu software.​

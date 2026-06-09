@@ -1,0 +1,31 @@
+
+Se você está começando, eu recomendaria a seguinte sequência:
+-------------------------------------------------------------
+Lista de compras.
+Agenda de contatos.
+To-Do List.
+Sistema de estoque.
+Quiz.
+Jogo da forca.
+
+
+Lista de tarefas
+
+Funcionalidades:
+----------------
+Adicionar tarefa.
+Listar tarefas.
+Remover tarefa.
+Marcar tarefa como concluída.
+Sair do programa.
+
+Conceitos praticados:
+--------------------
+Listas (list)
+Laços (while, for)
+Condições (if, elif, else)
+Funções
+Entrada de dados (input)
+Manipulação de índices
+
+Cada projeto aumenta gradualmente a dificuldade e reforça bastante o uso de listas.
