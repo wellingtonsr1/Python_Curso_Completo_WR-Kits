@@ -15,7 +15,8 @@ while True:
     print("6. Sair")
     opcao = input("\nEscolha uma opção: ")
 
-    if opcao == '1': # Adicionar contato na agenda
+    # Adicionar contato na agenda
+    if opcao == '1': 
         print("Adicionando contato na agenda.")
         print("-------------------------------")
         while True:
@@ -29,14 +30,16 @@ while True:
             lista_contatos[1].append(telefone)  # Telefone
             lista_contatos[2].append(email)     # Email
 
-    elif opcao == '2': # Listar os contatos 
+    # Listar os contatos
+    elif opcao == '2':  
         print("\nContatos na agenda:")
         print("-------------------------------")
         for i in range(len(lista_contatos[0])):
             print(f"Nome: {lista_contatos[0][i]}, Telefone: {lista_contatos[1][i]}, Email: {lista_contatos[2][i]}")
         print("-------------------------------")
 
-    elif opcao == '3': # Pesquisar contato na agenda
+    # Pesquisar contato na agenda
+    elif opcao == '3': 
         print("Pesquisar contato na agenda.")
         print("-------------------------------")
         nome_pesquisa = input("Digite o nome do contato que deseja pesquisar: ")
@@ -45,8 +48,9 @@ while True:
             print(f"\nContato encontrado: Nome: {lista_contatos[0][index]}, Telefone: {lista_contatos[1][index]}, Email: {lista_contatos[2][index]}")
         else:
             print("Contato não encontrado.")
-
-    elif opcao == '4': # Remover contato da agenda
+            
+    # Remover contato da agenda
+    elif opcao == '4': 
         print("\nRemover contato da agenda.")
         print("-------------------------------")
         nome_remover = input("Digite o nome do contato que deseja remover: ")
