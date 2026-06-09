@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # Listas em Python
-lista = [1, 2, 3, 4, 5, 6]
+lista = [1, 2, 3, 4, 5]
 lista2 = [7, 8, 9, 10, 11, 12, 40, 54, 67, 89, 90]
 
 print("------------------------------------------------------")
@@ -9,6 +9,7 @@ print("Imprimindo cada elemento da lista:")
 print("------------------------------------------------------")
 for numero in lista:
     print(numero)
+
 print("------------------------------------------------------")
 print("Imprimindo a lista completa:")
 print("------------------------------------------------------")

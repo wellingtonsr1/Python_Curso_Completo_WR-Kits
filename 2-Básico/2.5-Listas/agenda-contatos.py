@@ -17,7 +17,7 @@ while True:
 
     # Adicionar contato na agenda
     if opcao == '1': 
-        print("Adicionando contato na agenda.")
+        print("* Adicionar contato na agenda. *")
         print("-------------------------------")
         while True:
             print("Digite as informações do contato: (ou 'q' para sair)")
@@ -40,7 +40,7 @@ while True:
 
     # Pesquisar contato na agenda
     elif opcao == '3': 
-        print("Pesquisar contato na agenda.")
+        print("* Pesquisar contato na agenda. *")
         print("-------------------------------")
         nome_pesquisa = input("Digite o nome do contato que deseja pesquisar: ")
         if nome_pesquisa in lista_contatos[0]:
@@ -51,7 +51,7 @@ while True:
             
     # Remover contato da agenda
     elif opcao == '4': 
-        print("\nRemover contato da agenda.")
+        print("\n* Remover contato da agenda. *")
         print("-------------------------------")
         nome_remover = input("Digite o nome do contato que deseja remover: ")
         if nome_remover in lista_contatos[0]:
@@ -65,6 +65,37 @@ while True:
 
 
     # Alterar contato da agenda
+    elif opcao == '5': 
+        print("\n* Alterar contato da agenda. *")
+        print("-------------------------------") 
+        contato_alterar = input("Digite o nome do contato que deseja alterar: ")
+        if contato_alterar in lista_contatos[0]:
+            index = lista_contatos[0].index(contato_alterar)
+
+            # Contato atual
+            print("\nContato encontrado:")
+            print(f"Nome.....: {lista_contatos[0][index]}")
+            print(f"Telefone.: {lista_contatos[1][index]}")
+            print(f"Email....: {lista_contatos[2][index]}")
+            
+            # Novo contato
+            print("\nDigite as informações do novo contato:")
+            print("( Deixe em branco e pressione Enter para manter o valor atual) ")
+            novo_nome = input(f"Novo Nome [Atual: {lista_contatos[0][index]}]: ")
+            novo_telefone = input(f"Novo Telefone [Atual: {lista_contatos[1][index]}]: ")
+            novo_email = input(f"Novo Email [Atual: {lista_contatos[2][index]}]: ")
+
+            if novo_nome != "":
+                lista_contatos[0][index] = novo_nome  # Alterar nome
+            if novo_telefone != "":
+                lista_contatos[1][index] = novo_telefone# Alterar telefone
+            if novo_email != "":
+                lista_contatos[2][index] = novo_email# Alterar email
+            
+            print("\nContato alterado com sucesso!")
+
+        else:
+            print("\nContato não encontrado.")
 
     # Sair do programa
     elif opcao == '6':
