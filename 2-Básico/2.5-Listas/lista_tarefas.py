@@ -67,7 +67,6 @@ while True:
 
         # Percorre a lista procurando a tarefa
         for tarefa in lista_tarefas:
-
             # tarefa[0] contém a descrição da tarefa
             if tarefa_pesquisa == tarefa[0]:
                 encontrada = True
