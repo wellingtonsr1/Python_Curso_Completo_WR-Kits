@@ -105,3 +105,7 @@ while True:
         print("\nSaindo do programa.")
         break
     
+    # Caso seja informada uma opção não lista no menu
+    else:
+        print("Opção inválida!")
+    
