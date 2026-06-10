@@ -82,8 +82,6 @@ while True:
         else:
             print("\nTarefa não encotrada.")
         
-
-
     # Remover tarefa
     # Alterar tarefa
     # Sair do programa
