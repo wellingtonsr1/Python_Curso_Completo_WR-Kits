@@ -26,6 +26,7 @@ while True:
             telefone = input("Telefone: ")
             email = input("Email: ")
 
+            lista_contatos.append([nome, telefone, email])
             lista_contatos[0].append(nome)      # Nome
             lista_contatos[1].append(telefone)  # Telefone
             lista_contatos[2].append(email)     # Email
@@ -35,7 +36,9 @@ while True:
         print("\nContatos na agenda:")
         print("-------------------------------")
         for i in range(len(lista_contatos[0])):
-            print(f"Nome: {lista_contatos[0][i]}, Telefone: {lista_contatos[1][i]}, Email: {lista_contatos[2][i]}")
+            print(f"Nome.....: {lista_contatos[0][i]}") 
+            print(f"Telefone.: {lista_contatos[1][i]}")
+            print(f"Email....: {lista_contatos[2][i]}\n")
         print("-------------------------------")
 
     # Pesquisar contato na agenda
@@ -45,7 +48,9 @@ while True:
         nome_pesquisa = input("Digite o nome do contato que deseja pesquisar: ")
         if nome_pesquisa in lista_contatos[0]:
             index = lista_contatos[0].index(nome_pesquisa)
-            print(f"\nContato encontrado: Nome: {lista_contatos[0][index]}, Telefone: {lista_contatos[1][index]}, Email: {lista_contatos[2][index]}")
+            print(f"\nNome.....: {lista_contatos[0][index]}")
+            print(f"Telefone.: {lista_contatos[1][index]}")
+            print(f"Email....: {lista_contatos[2][index]}")
         else:
             print("Contato não encontrado.")
             
@@ -93,7 +98,6 @@ while True:
                 lista_contatos[2][index] = novo_email# Alterar email
             
             print("\nContato alterado com sucesso!")
-
         else:
             print("\nContato não encontrado.")
 
@@ -101,3 +105,8 @@ while True:
     elif opcao == '6':
         print("\nSaindo do programa.")
         break
+    
+    # Caso seja informada uma opção não listada no menu
+    else:
+        print("Opção inválida!")
+    
