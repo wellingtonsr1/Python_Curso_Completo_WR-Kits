@@ -81,3 +81,4 @@ print(0 not in lista2) # Verifica se o número 0 não está presente na lista2
 
 # Imprime uma linha em branco para separar a saída
 print("\n")
+
