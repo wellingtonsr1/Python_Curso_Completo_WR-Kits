@@ -4,7 +4,7 @@ lista_tarefas = []
 
 while True:
     tarefa = input("Digite a tarefa (q para sair): ")
-    if tarefa == 'q': break
+    if tarefa == 'q' or tarefa == 'Q': break
     lista_tarefas.append([tarefa, False])
 
 

@@ -26,6 +26,7 @@ while True:
             telefone = input("Telefone: ")
             email = input("Email: ")
 
+            lista_contatos.append([nome, telefone, email])
             lista_contatos[0].append(nome)      # Nome
             lista_contatos[1].append(telefone)  # Telefone
             lista_contatos[2].append(email)     # Email
@@ -105,7 +106,7 @@ while True:
         print("\nSaindo do programa.")
         break
     
-    # Caso seja informada uma opção não lista no menu
+    # Caso seja informada uma opção não listada no menu
     else:
         print("Opção inválida!")
     
