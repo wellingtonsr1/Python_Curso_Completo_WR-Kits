@@ -16,10 +16,12 @@ for lista in lista_teste:
 #         break
 # print(index)
 # lista_teste.pop(index)
-print(lista_teste)
-
-
-
+#print(lista_teste)
+print(len(lista_teste[-1]))
+print(len(lista_teste))
+#print(len(lista_teste[-1]) == len(lista_teste))
+if (len(lista_teste[-1])) == len(lista_teste):
+    print("ok")
 # for index in range(len(lista)):
 #     print(lista[index])
 

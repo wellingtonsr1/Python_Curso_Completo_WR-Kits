@@ -39,7 +39,6 @@ while True:
             # False = não concluída
             lista_tarefas.append([tarefa, False])
     
-
     # Lista tarefas
     elif opcao == '2':
         if len(lista_tarefas) != 0:
@@ -121,19 +120,26 @@ while True:
     # Marca como concluída
     elif opcao == '6':
         # Verifica se existe pelo menos uma tarefa cadastrada.
-        # len(lista_tarefas) retorna a quantidade de tarefas na lista.
         if len(lista_tarefas) != 0:
             print("\n* Concuir tarefa *")
             print("------------------")
+
+            # Solicita ao usuário o nome da tarefa que deseja concluir.
             tarefa_concluir = input("Digite a tarefa que deseja concluir: ")
 
+            # Percorre todas as tarefas cadastradas.
             for tarefa in lista_tarefas:
-                if tarefa[0] == tarefa_concluir and tarefa[1] == False:
-                    tarefa[1] = True
-                    break
-                else:
-                    print(f"\nA tarefa {tarefa[0]} já está concluída.")
-                
+                # Verifica se a tarefa atual é a informada pelo usuário.
+                if tarefa[0] == tarefa_concluir:
+                    if tarefa[1] == False:
+                        tarefa[1] = True # Marca a tarefa como concluída.
+                        break # Interrompe o laço, pois a tarefa já foi encontrada.
+                    else:
+                        # Executado quando a tarefa já estava concluída.
+                        print(f"\nA tarefa [ {tarefa[0]} ] já está concluída.")
+                        break # Interrompe o laço, pois a tarefa foi encontrada.
+            # Nenhuma tarefa com o nome informado foi encontrada
+            else:
                 print("\nTarefa não encontrada.") 
         # Executado quando não existem tarefas cadastradas.
         else:
