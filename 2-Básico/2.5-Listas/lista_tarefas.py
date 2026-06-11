@@ -126,6 +126,15 @@ while True:
             print("\n* Concuir tarefa *")
             print("------------------")
             tarefa_concluir = input("Digite a tarefa que deseja concluir: ")
+
+            for tarefa in lista_tarefas:
+                if tarefa[0] == tarefa_concluir and tarefa[1] == False:
+                    tarefa[1] = True
+                    break
+                else:
+                    print(f"\nA tarefa {tarefa[0]} já está concluída.")
+                
+                print("\nTarefa não encontrada.") 
         # Executado quando não existem tarefas cadastradas.
         else:
             print("\nA lista está vazia.") 
