@@ -7,15 +7,18 @@
 
 #lista = [1, 2, 3, 4, 5, 8]
 #lista2 = [7, 8]
-lista_teste = [['b', 2], ['a', 1]]
+lista_teste = [['b', False], ['a', True]]
 
 for lista in lista_teste:
-    if lista[0] == 'a':
-         index = lista_teste.index(lista)
-         break
-print(index)
-lista_teste.pop(index)
+    if lista[0] == 'b' and lista[1] == False:
+        lista[1] = True
+#         index = lista_teste.index(lista)
+#         break
+# print(index)
+# lista_teste.pop(index)
 print(lista_teste)
+
+
 
 # for index in range(len(lista)):
 #     print(lista[index])
