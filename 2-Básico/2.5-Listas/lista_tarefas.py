@@ -62,7 +62,6 @@ while True:
         else:
             print("\nA lista está vazia.")
 
-
     # Pesquisar tarefa
     elif opcao == '3':
         if len(lista_tarefas) != 0:
@@ -91,7 +90,6 @@ while True:
         else:
             print("\nA lista está vazia.")
 
-
     # Remover tarefa
     elif opcao == '4':
         # Verifica se existe pelo menos uma tarefa cadastrada.
@@ -116,11 +114,9 @@ while True:
         else:
             print("\nA lista está vazia.")     
 
-
     # Editar tarefa
     elif opcao == '5':
         print("\nEm produção...")
-
 
     # Marca como concluída
     elif opcao == '6':
@@ -139,11 +135,9 @@ while True:
         print("\nSaindo do programa.")
         break
     
-
     # Caso seja informada uma opção não listada no menu
     else:
         print("Opção inválida!")
-
 
 
 #lista_tarefas[0][1] = True
