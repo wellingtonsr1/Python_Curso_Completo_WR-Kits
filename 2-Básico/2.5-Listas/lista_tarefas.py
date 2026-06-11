@@ -154,23 +154,4 @@ while True:
     else:
         print("Opção inválida!")
 
-
-#lista_tarefas[0][1] = True
-#print(lista_tarefas)
-
-
-# Exemplo de acesso a uma tarefa:
-#
-# lista_tarefas[0]     -> primeira tarefa
-# lista_tarefas[0][0]  -> descrição da primeira tarefa
-# lista_tarefas[0][1]  -> status da primeira tarefa
-#
-# Exemplo:
-#
-# lista_tarefas = [
-#     ["Estudar Python", False]
-# ]
-#
-# lista_tarefas[0][0] -> "Estudar Python"
-# lista_tarefas[0][1] -> False
     
