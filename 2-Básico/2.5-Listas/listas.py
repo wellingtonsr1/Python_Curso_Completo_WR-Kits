@@ -5,35 +5,44 @@
 # print("✓")
 # print("✗")
 
-lista = [1, 2, 3, 4, 5, 8]
-lista2 = [7, 8]
+#lista = [1, 2, 3, 4, 5, 8]
+#lista2 = [7, 8]
+lista_teste = [['b', 2], ['a', 1]]
 
-for index in range(len(lista)):
-    print(lista[index])
+for lista in lista_teste:
+    if lista[0] == 'a':
+         index = lista_teste.index(lista)
+         break
+print(index)
+lista_teste.pop(index)
+print(lista_teste)
 
-#print(f"Tamanho: {len(lista)}")
+# for index in range(len(lista)):
+#     print(lista[index])
 
-lista.extend(lista2)
-print(lista)
+# #print(f"Tamanho: {len(lista)}")
 
-lista.insert(2, 32)
-print(lista)
+# lista.extend(lista2)
+# print(lista)
 
-lista.pop(2)
-print(lista)
+# lista.insert(2, 32)
+# print(lista)
 
-del lista[3]
-print(lista)
+# lista.pop(2)
+# print(lista)
 
-lista.remove(8)
-print(lista)
+# del lista[3]
+# print(lista)
 
-#lista.clear()
-#print(lista)
+# lista.remove(8)
+# print(lista)
 
-#print(lista[-1])
+# #lista.clear()
+# #print(lista)
 
-print(lista[len(lista)-1])
+# #print(lista[-1])
 
-print("Sim") if 53 in lista else print("Não")
-print("Sim") if 53 not in lista else print("Não")
+# print(lista[len(lista)-1])
+
+# print("Sim") if 53 in lista else print("Não")
+# print("Sim") if 53 not in lista else print("Não")
