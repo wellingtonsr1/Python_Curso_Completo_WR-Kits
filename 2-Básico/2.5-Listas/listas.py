@@ -7,7 +7,7 @@
 
 #lista = [1, 2, 3, 4, 5, 8]
 #lista2 = [7, 8]
-lista_teste = [['b', False], ['a', True]]
+lista_teste = [['teste 1', False], ['teste 2', True]]
 
 for lista in lista_teste:
     if lista[0] == 'b' and lista[1] == False:
@@ -17,11 +17,25 @@ for lista in lista_teste:
 # print(index)
 # lista_teste.pop(index)
 #print(lista_teste)
-print(len(lista_teste[-1]))
-print(len(lista_teste))
-#print(len(lista_teste[-1]) == len(lista_teste))
-if (len(lista_teste[-1])) == len(lista_teste):
-    print("ok")
+#print(lista_teste)
+
+nome = "teste 1"
+novo_nome = 'wellington'
+for item_lista in lista_teste:
+    if nome == item_lista[0]:
+        index = lista_teste.index(item_lista)
+        lista_teste[index][0] = novo_nome
+        break
+
+print(f"Nome atual: {nome}")      
+print(lista_teste)
+
+
+
+
+
+
+
 # for index in range(len(lista)):
 #     print(lista[index])
 
