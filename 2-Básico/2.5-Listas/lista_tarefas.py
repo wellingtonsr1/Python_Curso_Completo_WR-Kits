@@ -115,8 +115,38 @@ while True:
 
     # Editar tarefa
     elif opcao == '5':
-        print("\nEm produção...")
+        # Solicita ao usuário a tarefa que será alterada.
+        tarefa_alterar = input("Digite a tarefa que deseja alterar: ")
 
+        # Verifica se existe pelo menos uma tarefa cadastrada.
+        # len(lista_tarefas) retorna a quantidade de tarefas na lista.
+        if len(lista_tarefas) != 0:
+            
+            # Verifica se a descrição da tarefa atual corresponde à tarefa informada pelo usuário.
+            for tarefa in lista_tarefas:
+                # Obtém a posição da tarefa dentro da lista principal.
+                if tarefa_alterar == tarefa[0]:
+                    # Solicita o novo texto que substituirá a tarefa atual.
+                    nova_tarefa = input("Digite a nova descrção da tarefa: ")
+
+                    # Obtém a posição da tarefa dentro da lista principal.
+                    index = lista_tarefas.index(tarefa)
+                    
+                    # Altera somente a descrição da tarefa.
+                    lista_tarefas[index][0] = nova_tarefa
+
+                    #O for já entrega uma referência ao item.
+                    #tarefa[0] = nova_tarefa
+
+                    print("\nTarefa alterada com sucesso!")
+                    break # Interrompe o laço após encontrar e alterar a tarefa desejada.
+
+            # Nenhuma tarefa com o nome informado foi encontrada
+            else:
+                print("\nTarefa não encontrada.")
+        # Executado quando não existem tarefas cadastradas.
+        else:
+            print("\nA lista está vazia.") 
     # Marca como concluída
     elif opcao == '6':
         # Verifica se existe pelo menos uma tarefa cadastrada.
