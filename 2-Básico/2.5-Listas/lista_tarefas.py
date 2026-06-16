@@ -27,7 +27,7 @@ while True:
     opcao = input("\nEscolha uma opção: ")
 
     # Adicionar tarefa
-    if opcao == '1': 
+    if opcao == 1: 
         # Permite adicionar várias tarefas seguidas
         while True:
             tarefa = input("Digite a tarefa (q para sair): ")
@@ -131,7 +131,7 @@ while True:
 
                     # Obtém a posição da tarefa dentro da lista principal.
                     index = lista_tarefas.index(tarefa)
-                    
+
                     # Altera somente a descrição da tarefa.
                     lista_tarefas[index][0] = nova_tarefa
 
