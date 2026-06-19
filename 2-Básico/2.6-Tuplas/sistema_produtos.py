@@ -35,12 +35,15 @@ while True:
     # Recebe a opção escolhida pelo usuário.
     opcao = input("\nEscola uma opção: ")
 
+    # -------------------------------------------------
+    # OPÇÃO 1 - CADASTRAR PRODUTOS
+    # -------------------------------------------------
     if opcao == "1":
         # Solicita os dados do novo produto.
         cod_produto = input("\nCódigo do produto: ")
         nome_produto = input("Nome do produto: ")
         categoria_produto = input("Categoria do produto: ")
-        preco_produto = input("Preço do produto: ")
+        preco_produto = float(input("Preço do produto: "))
 
         # Cria uma tupla contendo os dados do produto.
         #
@@ -71,10 +74,18 @@ while True:
                 # produto[1] -> nome
                 # produto[2] -> categoria
                 # produto[3] -> preço
-                print(f"\nCódigo    : {produto[0]}")
-                print(f"Nome      : {produto[1]}")
-                print(f"Cateegoria: {produto[2]}")
-                print(f"Preço     : {produto[3]}\n")
+                # print(f"Código    : {produto[0]}")
+                # print(f"Nome      : {produto[1]}")
+                # print(f"Cateegoria: {produto[2]}")
+                # print(f"Preço     : {produto[3]}\n")
+
+                # Usando desempacotamento de tupla
+                codigo, nome, categoria, preco = produto
+
+                print(f"Código   : {codigo}")
+                print(f"Nome     : {nome}")
+                print(f"Categoria: {categoria}")
+                print(f"Preço    : {preco}\n")
 
         # Caso a lista esteja vazia.
         else:
