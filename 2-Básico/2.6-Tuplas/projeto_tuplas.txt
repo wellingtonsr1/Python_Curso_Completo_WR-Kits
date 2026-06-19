@@ -1,5 +1,4 @@
-Um excelente projeto para praticar tuplas é um Sistema de Catálogo 
-de Produtos.
+Um excelente projeto para praticar tuplas é um Sistema de Catálogo de Produtos.
 
 Funcionalidades
 Listar produtos.
