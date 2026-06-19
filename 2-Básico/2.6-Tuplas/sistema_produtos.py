@@ -85,7 +85,7 @@ while True:
                 print(f"Código   : {codigo}")
                 print(f"Nome     : {nome}")
                 print(f"Categoria: {categoria}")
-                print(f"Preço    : {preco}\n")
+                print(f"Preço    : R$ {preco:.2f}\n")
 
         # Caso a lista esteja vazia.
         else:
