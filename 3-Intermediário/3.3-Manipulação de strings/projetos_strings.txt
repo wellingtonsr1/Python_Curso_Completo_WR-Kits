@@ -1,0 +1,42 @@
+🔤 1. O básico: o que é uma string?
+
+✂️ 2. Métodos mais usados
+🔹 lower() → tudo minúsculo
+
+🔹 upper() → tudo maiúsculo
+🔹 strip() → remove espaços
+🔹 replace() → substitui texto
+🔹 split() → quebra string em lista
+🔹 join() → junta lista em string
+
+
+🔍 3. Exercícios práticos (nível sistema real)
+🧾 1. Padronizar nomes de usuários
+📧 2. Validar e-mail simples
+
+🔐 3. Sistema de senha (validação básica)
+
+📦 4. Limpeza de dados (tipo sistema de inventário)
+
+🔎 5. Buscar palavra em texto
+
+🧠 6. Contar palavras
+
+🔄 7. Substituir dados sensíveis
+
+🧪 8. Extrair domínio de e-mail
+
+🔥 9. Sistema simples de cadastro (nível real)
+
+⚙️ 10. Manipulação estilo sistema de inventário
+
+💡 11. Misturando com lambda (nível intermediário)
+
+
+🧠 Regra de ouro
+
+90% dos sistemas reais fazem 3 coisas com strings:
+
+limpar (strip)
+padronizar (lower/title)
+validar (if "@" in email)
