@@ -1,0 +1,10 @@
+Quando começamos a trabalhar com uma quantidade maior de informações, o uso de Arrays passa a ser importante. Nesta videoaula, vamos aprender a declarar um Array e realizar as principais operações.
+
+
+
+O que você aprenderá nesta videoaula:
+
+O que é um array
+Como declarar um array básico no Python
+Operações com array
+Introdução a slicing
