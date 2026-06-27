@@ -1,0 +1,72 @@
+🔎 1. O que é Regex?
+
+É uma “linguagem dentro da linguagem” para padrões.
+
+Exemplo simples:
+
+email
+CPF
+telefone
+senha forte
+logs
+validação de formulários
+
+⚙️ 2. Funções principais do re
+🔹 search() → procura padrão
+
+🔹 findall() → lista todas ocorrências
+
+🔹 match() → começa no início
+
+🔹 sub() → substitui
+
+🧠 3. Metacaracteres importantes
+Símbolo	Significado
+.	qualquer caractere
+\d	número
+\D	não número
+\w	letra/número
+\s	espaço
++	1 ou mais
+*	0 ou mais
+?	opcional
+^	início
+$	fim
+
+
+📧 4. Validar e-mail (básico)
+
+📱 5. Validar telefone brasileiro
+
+🔐 6. Senha forte
+
+🧾 7. Extrair números de texto
+
+🧹 8. Limpar tudo que não é número (CPF, CNPJ)
+
+📦 9. Sistema de inventário (regex real)
+
+🔍 10. Buscar IP em logs
+
+📊 11. Combinação poderosa (regex + def)
+
+🚀 12. Regex + lambda (uso rápido)
+
+🔥 Resumo prático
+Use regex quando:
+
+✔ validar padrões
+✔ extrair dados de textos
+✔ limpar informações
+✔ analisar logs
+✔ automatizar parsing
+
+Não use regex quando:
+
+❌ lógica for simples (if "@" in email)
+❌ código ficar difícil de ler
+❌ regras forem muito complexas sem necessidade
+
+🧠 Regra de ouro
+
+Regex não é para escrever código bonito — é para resolver problemas de texto difíceis.

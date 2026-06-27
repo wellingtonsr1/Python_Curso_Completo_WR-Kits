@@ -1,0 +1,89 @@
+Aqui vão ideias bem práticas (do básico ao mais forte):
+
+1. 🔹 Sistema de notas de alunos (ideal para começar)
+O que você treina:
+lambda com sort()
+lambda com filter()
+média e ranking
+
+Exercícios:
+ordenar por nota (maior → menor)
+filtrar alunos aprovados (nota ≥ 7)
+encontrar o melhor aluno
+
+2. 🛒 Mini sistema de e-commerce (produtos)
+O que treina:
+filtros de preço
+ordenação por valor
+buscas simples
+
+Exercícios:
+produtos abaixo de R$100
+ordenar por preço
+produto mais caro
+
+3. 📊 Sistema de análise de funcionários
+O que treina:
+filtros por cargo/salário
+ranking
+
+Exercícios:
+quem ganha mais
+média salarial
+filtrar salários acima de X
+
+4. 📁 Organizador de arquivos (simulação)
+O que treina:
+string + lambda
+filtragem por extensão
+
+Exercícios:
+separar apenas imagens
+separar apenas PDFs
+
+5. 🧠 Sistema de ranking de jogos
+O que treina:
+ordenação complexa
+múltiplos critérios
+
+Exercícios:
+ranking por kills
+melhor jogador
+
+6. 📦 Sistema de estoque simples (nível intermediário)
+O que treina:
+filtros por quantidade
+status de produto
+
+Exercícios:
+produtos em falta
+produtos com estoque baixo (<3)
+
+7. 🧾 Sistema de pedidos (mais avançado)
+O que treina:
+somatório com map
+filtros combinados
+análise
+
+Exercícios:
+total por cliente
+pedidos acima de 200
+
+8. ⚙️ Exercício avançado (nível “projeto forte”)
+Sistema de logs de servidor
+
+Exercícios:
+filtrar erros (status 500)
+média de tempo de resposta
+ordenar por tempo
+
+💡 Dica importante (isso é o que te faz evoluir rápido)
+
+Lambda quase nunca é usada sozinha.
+
+Ela aparece principalmente com:
+
+sorted()
+filter()
+map()
+

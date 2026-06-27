@@ -1,0 +1,29 @@
+1. 📚 Sistema de notas de alunos (com def)
+
+2. 🛒 Sistema de produtos (e-commerce)
+
+3. 👨‍💼 Sistema de funcionários
+
+4. 📁 Organizador de arquivos
+
+5. 🎮 Ranking de jogadores
+
+6. 📦 Sistema de estoque
+
+7. 🧾 Sistema de pedidos
+
+8. 📊 Sistema de logs
+
+
+🔥 Diferença prática (lambda vs def)
+
+Lambda:
+rápida
+descartável
+inline
+
+Def:
+reutilizável
+legível
+profissional
+

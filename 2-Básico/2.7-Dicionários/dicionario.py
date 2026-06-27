@@ -1,4 +1,4 @@
-# # #!/usr/bin/python3
+#!/usr/bin/python3
 
 # # # Dicionário em Python
 # # info = {
@@ -50,7 +50,7 @@ if n_sobrenome: info['nome'] = n_sobrenome
 if n_idade: info['idade'] = n_idade
 if n_cidade: info['cidade'] = n_cidade
 
-# Exibe os novos dados em uma linha.
+# Exibe os novos dados em uma única linha.
 print(f"Depois: {info}")
 
 # Exibe os novos dados em várias linhas.
@@ -69,5 +69,10 @@ print(f"{removido} foi removido com sucesso!")
 
 # o 'del' apenas remove sem retornar quem foi removido.
 del info['idade']
+
+print(info)
+
+# adicionando mais um elemento ao dicionário
+info['pais'] = 'Brasil'
 
 print(info)
