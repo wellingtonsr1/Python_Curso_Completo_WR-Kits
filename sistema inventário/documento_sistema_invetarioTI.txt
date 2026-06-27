@@ -1,0 +1,100 @@
+Esta é a documentação técnica e de usuário para o Sistema de Inventário de Equipamentos de TI. Esta documentação foi estruturada para orientar desenvolvedores, administradores de sistemas e usuários finais sobre o funcionamento, arquitetura e utilização da ferramenta.
+
+Documentação Técnica: Sistema de Inventário de TI
+1. Visão Geral do Sistema
+O Sistema de Inventário de TI é uma aplicação desktop baseada em linha de comando (CLI) desenvolvida em Python. Seu principal objetivo é catalogar, monitorar e gerenciar o ciclo de vida dos ativos de tecnologia de uma organização (como notebooks, servidores, switches, monitores, etc.).
+
+O sistema utiliza o banco de dados relacional SQLite para persistência local de dados e permite a exportação de relatórios no formato CSV.
+
+2. Arquitetura e Tecnologias Utilizadas
+Linguagem de Programação: Python 3.x
+Banco de Dados: SQLite3 (embarcado, não requer instalação de servidor de banco de dados).
+Formatos de Exportação: CSV (Comma-Separated Values).
+Paradigma de Programação: Orientação a Objetos (POO).
+Bibliotecas Utilizadas (Nativas do Python):
+sqlite3: Para comunicação com o banco de dados.
+csv: Para geração de relatórios.
+datetime: Para registro automático de carimbo de data/hora (timestamp).
+3. Modelagem do Banco de Dados
+O sistema utiliza uma única tabela chamada equipamentos. Abaixo está a estrutura do esquema (schema):
+
+Nome do Campo	Tipo de Dado	Restrições	Descrição
+id	INTEGER	PRIMARY KEY, AUTOINCREMENT	Identificador único do registro.
+tipo	TEXT	NOT NULL	Categoria do ativo (ex: Notebook, Servidor).
+marca	TEXT	NOT NULL	Fabricante do equipamento (ex: Dell, Cisco).
+modelo	TEXT	NOT NULL	Modelo específico (ex: Latitude 3420).
+numero_serie	TEXT	UNIQUE, NOT NULL	Código serial único do fabricante (evita duplicidade).
+status	TEXT	NOT NULL	Estado atual (ex: Em uso, Manutenção, Disponível).
+localizacao	TEXT	-	Setor, sala ou filial onde o ativo se encontra.
+responsavel	TEXT	-	Nome do colaborador ou equipe responsável pelo ativo.
+data_cadastro	TEXT	NOT NULL	Data e hora em que o registro foi criado.
+4. Estrutura do Código (Classes e Métodos)
+O sistema está estruturado na classe principal InventarioTI e funções auxiliares de interface.
+
+4.1. Classe InventarioTI
+Responsável por toda a lógica de negócios e persistência de dados.
+
+__init__(db_name): Inicializa a classe e define o nome do arquivo de banco de dados (padrão: inventario_ti.db). Chama o método de inicialização.
+inicializar_banco(): Executa a query DDL para criar a tabela equipamentos caso ela ainda não exista no arquivo .db.
+conectar(): Estabelece e retorna uma conexão ativa com o banco SQLite.
+adicionar_equipamento(...): Recebe os atributos do ativo, gera o timestamp atual e realiza o INSERT no banco. Possui tratamento de exceção para impedir duplicidade de Número de Série.
+listar_equipamentos(): Executa um SELECT * e retorna uma lista com todos os registros.
+buscar_equipamento(termo_busca): Realiza uma busca flexível utilizando o operador LIKE do SQL nos campos numero_serie, tipo e responsavel.
+atualizar_equipamento(id_equipamento, novos_dados): Recebe o ID do ativo e um dicionário contendo apenas os campos que sofrerão alteração. Monta a query dinamicamente para atualizar apenas o necessário.
+excluir_equipamento(id_equipamento): Remove fisicamente o registro correspondente ao ID informado utilizando a instrução DELETE.
+exportar_para_csv(nome_arquivo): Extrai todos os dados do banco e os escreve em um arquivo estruturado .csv codificado em UTF-8.
+4.2. Funções de Interface (CLI)
+exibir_tabela(equipamentos): Formata e alinha os dados em formato de colunas legíveis no terminal, limitando caracteres longos para não quebrar o layout.
+menu_principal(): Controla o fluxo da aplicação, exibindo as opções numéricas ao usuário, capturando as entradas (inputs) e chamando os respectivos métodos da classe InventarioTI.
+5. Guia de Instalação e Execução
+Pré-requisitos
+Ter o Python 3.6 ou superior instalado no sistema operacional.
+Passo a Passo
+Salve o código fornecido em um arquivo chamado inventario_ti.py.
+Abra o Terminal (Linux/macOS) ou Prompt de Comando/PowerShell (Windows).
+Navegue até a pasta onde o arquivo foi salvo:
+cd /caminho/para/a/pasta
+Execute o script:
+python inventario_ti.py
+(Nota: Na primeira execução, o arquivo inventario_ti.db será criado automaticamente no mesmo diretório).
+
+6. Manual do Usuário (Como Utilizar)
+Ao iniciar o programa, o menu principal será exibido:
+
+=============================================
+  SISTEMA DE INVENTÁRIO DE EQUIPAMENTOS DE TI  
+=============================================
+1. Cadastrar Novo Equipamento
+2. Listar Todos os Equipamentos
+3. Buscar Equipamento (Nº Série, Tipo, Responsável)
+4. Atualizar Equipamento
+5. Excluir Equipamento
+6. Exportar Inventário para CSV
+7. Sair
+=============================================
+6.1. Cadastrar Novo Equipamento (Opção 1)
+O sistema solicitará as informações do ativo.
+Campos Obrigatórios: Tipo, Marca, Modelo, Número de Série e Status.
+Se você tentar cadastrar um Número de Série que já existe no sistema, o programa exibirá um alerta de erro e cancelará a operação para evitar duplicidade.
+6.2. Listar Todos os Equipamentos (Opção 2)
+Exibe uma tabela organizada com todos os itens cadastrados, mostrando ID, Tipo, Marca, Modelo, Número de Série, Status, Localização e Responsável.
+6.3. Buscar Equipamento (Opção 3)
+Permite pesquisar por termos específicos.
+Você pode digitar apenas parte do nome (ex: "Dell", "Notebook", "João") e o sistema trará todas as correspondências parciais encontradas.
+6.4. Atualizar Equipamento (Opção 4)
+Solicita o ID do equipamento (visualizado na listagem ou busca).
+O sistema perguntará os novos dados campo por campo.
+Dica de Uso: Se não quiser alterar um campo específico, basta pressionar Enter deixando-o em branco. O sistema manterá o valor original daquele campo.
+6.5. Excluir Equipamento (Opção 5)
+Solicita o ID do equipamento a ser removido.
+Por segurança, o sistema solicita uma confirmação por escrito (S para sim ou N para não) antes de deletar definitivamente o registro do banco de dados.
+6.6. Exportar Inventário para CSV (Opção 6)
+Gera um relatório chamado inventario_ti.csv na mesma pasta do programa.
+Este arquivo pode ser aberto diretamente no Microsoft Excel, LibreOffice Calc ou importado no Google Planilhas para criação de gráficos e relatórios gerenciais.
+7. Próximos Passos e Sugestões de Melhorias (Roadmap)
+Para evoluir este sistema em projetos futuros, os desenvolvedores podem considerar:
+
+Interface Gráfica (GUI): Implementar uma interface visual utilizando bibliotecas como Tkinter, PyQt ou CustomTkinter.
+Interface Web: Migrar o sistema para a web utilizando frameworks como Flask ou FastAPI no back-end e HTML/CSS no front-end.
+Autenticação: Adicionar controle de usuários com login e senha para auditoria de quem cadastrou ou alterou cada equipamento.
+Histórico de Movimentação: Criar uma tabela secundária para registrar o histórico de transferências de equipamentos entre colaboradores ou setores.
