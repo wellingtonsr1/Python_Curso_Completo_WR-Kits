@@ -77,11 +77,21 @@
 
 # print(info)
 
-lista = [{'a': 1, 'b': 2, 'c':3}, {'A': 1, 'B': 2, 'C': 3}]
+lista = [{'a': 1, 'b': 2, 'c':3}, {'a': 10, 'B': 2, 'C': 3}]
 
 #print(lista[0]['a'])
 
-for dic in lista:
-    if dic['a'] == 1:
-        lista.remove(dic)
-print(lista)
+# for dic in lista:
+#     if dic['a'] == 1:
+#         lista.remove(dic)
+# print(lista)
+
+def busca(num_1):
+    for num in lista:
+        if num['a'] == num_1:
+            return True
+            
+
+    return False
+
+print(busca(1))
