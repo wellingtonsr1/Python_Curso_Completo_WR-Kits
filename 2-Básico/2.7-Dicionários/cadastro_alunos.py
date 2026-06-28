@@ -51,33 +51,76 @@ def adicionar_aluno():
         print("    *** Digite 'q' pra sair... ***\n")
 
         # Entrada do nome do aluno
-        nome = input("Informe o nome do aluno: ").strip()
+        nome = input("Informe o nome do aluno........: ").strip()
 
         # Faz uma checagem se o nome informado já existe.
         if not existe_aluno(nome):
             # Permite sair do cadastro
             if nome.lower() == 'q': break
 
-            # Entrada das notas convertidas para número decimal
-            nota_1 = float(input("Informe a primeira nota: "))
-            nota_2 = float(input("Informe a segunda nota: "))
-            nota_3 = float(input("Informe a terceira nota: "))
-            nota_4 = float(input("Informe a quarta nota: "))
+            for idx in range(4):
+                # Entrada das notas convertidas para número decimal
+                nota_1_b1+idx = float(input(f"\nInforme a primeira nota do B{idx + 1}..: "))
+                # nota_2_b1 = float(input(f"Informe a segunda nota do B1...: "))
+                # nota_3_b1 = float(input(f"Informe a terceira nota do B1..: "))
+                # nota_4_b1 = float(input(f"Informe a quarta nota do B1....: "))
+
+            # # Entrada das notas convertidas para número decimal
+            # nota_1_b2 = float(input("\nInforme a primeira nota do B2..: "))
+            # nota_2_b2 = float(input("Informe a segunda nota do B2...: "))
+            # nota_3_b2 = float(input("Informe a terceira nota do B2..: "))
+            # nota_4_b2 = float(input("Informe a quarta nota do B2....: "))
+
+            # # Entrada das notas convertidas para número decimal
+            # nota_1_b3 = float(input("\nInforme a primeira nota do B3..: "))
+            # nota_2_b3 = float(input("Informe a segunda nota do B3...: "))
+            # nota_3_b3 = float(input("Informe a terceira nota do B3..: "))
+            # nota_4_b3 = float(input("Informe a quarta nota do B3....: "))
+
+            # # Entrada das notas convertidas para número decimal
+            # nota_1_b4 = float(input("\nInforme a primeira nota do B4..: "))
+            # nota_2_b4 = float(input("Informe a segunda nota do B4...: "))
+            # nota_3_b4 = float(input("Informe a terceira nota do B4..: "))
+            # nota_4_b4 = float(input("Informe a quarta nota do B4....: "))
 
             # Faz o cálculo da média
-            media = (nota_1 + nota_2 + nota_3 + nota_4) / 4
+            media_b1 = (nota_1_b1 + nota_2_b1 + nota_3_b1 + nota_4_b1) / 4
+            media_b2 = (nota_1_b2 + nota_2_b2 + nota_3_b2 + nota_4_b2) / 4
+            media_b3 = (nota_1_b3 + nota_2_b3 + nota_3_b3 + nota_4_b3) / 4
+            media_b4 = (nota_1_b4 + nota_2_b4 + nota_3_b4 + nota_4_b4) / 4
+
+            media_final = (media_b1 + media_b2 + media_b3 + media_b4) / 4
 
             # Faz a verificação, com base na média, se o aluno está aprovado ou não
-            status = 'Aprovado' if  media >= MEDIA_MINIMA else 'Reprovado'
+            status = 'Aprovado' if  media_final >= MEDIA_MINIMA else 'Reprovado'
 
             # Armazena os dados do aluno no dicionário
             info_aluno = {
                 'nome': nome,
-                'nota_1': nota_1,
-                'nota_2': nota_2,
-                'nota_3': nota_3,
-                'nota_4': nota_4,
-                'media': media,
+                'nota_1_b1': nota_1_b1,
+                'nota_2_b1': nota_2_b1,
+                'nota_3_b1': nota_3_b1,
+                'nota_4_b1': nota_4_b1,
+                'media_b1': media_b1,
+
+                'nota_1_b2': nota_1_b2,
+                'nota_2_b2': nota_2_b2,
+                'nota_3_b2': nota_3_b2,
+                'nota_4_b2': nota_4_b2,
+                'media_b2': media_b1,
+
+                'nota_1_b3': nota_1_b3,
+                'nota_2_b3': nota_2_b3,
+                'nota_3_b3': nota_3_b3,
+                'nota_4_b3': nota_4_b3,
+                'media_b3': media_b1,
+
+                'nota_1_b4': nota_1_b4,
+                'nota_2_b4': nota_2_b4,
+                'nota_3_b4': nota_3_b4,
+                'nota_4_b4': nota_4_b4,
+                'media_b4': media_b4,
+
                 'status': status
             }
 
@@ -106,12 +149,40 @@ def listar_alunos():
         # Percorre cada aluno armazenado na lista
         for aluno in alunos:
             print(f"\nAluno...: {aluno['nome']}")
-            print(f"Nota 1..: {aluno['nota_1']}")
-            print(f"Nota 2..: {aluno['nota_2']}")
-            print(f"Nota 3..: {aluno['nota_3']}")
-            print(f"Nota 4..: {aluno['nota_4']}")
-            print(f"Média...: {aluno['media']}")
-            print(f"Situação: {aluno['status']}")
+
+            print("\nPrimeiro Bimestre")
+            print("-" * 18)
+            print(f"Nota 1..: {aluno['nota_1_b1']}")
+            print(f"Nota 2..: {aluno['nota_2_b1']}")
+            print(f"Nota 3..: {aluno['nota_3_b1']}")
+            print(f"Nota 4..: {aluno['nota_4_b1']}")
+            print(f"Média B1: {aluno['media_b1']}")
+
+            print("\nSegundo Bimestre")
+            print("-" * 18)
+            print(f"Nota 1..: {aluno['nota_1_b2']}")
+            print(f"Nota 2..: {aluno['nota_2_b2']}")
+            print(f"Nota 3..: {aluno['nota_3_b2']}")
+            print(f"Nota 4..: {aluno['nota_4_b2']}")
+            print(f"Média B2: {aluno['media_b2']}")
+
+            print("\nTerceiro Bimestre")
+            print("-" * 18)
+            print(f"Nota 1..: {aluno['nota_1_b3']}")
+            print(f"Nota 2..: {aluno['nota_2_b3']}")
+            print(f"Nota 3..: {aluno['nota_3_b3']}")
+            print(f"Nota 4..: {aluno['nota_4_b3']}")
+            print(f"Média B3: {aluno['media_b3']}")
+
+            print("\nQuarto Bimestre")
+            print("-" * 18)
+            print(f"Nota 1..: {aluno['nota_1_b4']}")
+            print(f"Nota 2..: {aluno['nota_2_b4']}")
+            print(f"Nota 3..: {aluno['nota_3_b4']}")
+            print(f"Nota 4..: {aluno['nota_4_b4']}")
+            print(f"Média B4: {aluno['media_b4']}")
+
+            print(f"\nSituação: {aluno['status']}")
             print("-" * 40)
 
     input("\nPressione ENTER para voltar ao menu.")
