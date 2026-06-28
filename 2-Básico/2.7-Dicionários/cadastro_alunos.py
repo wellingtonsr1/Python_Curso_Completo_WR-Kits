@@ -18,6 +18,8 @@ MEDIA_MINIMA = 7.0
 # FUNÇÕES DO SISTEMA
 # =========================================================
 
+#def exibir_detalhes_aluno(aluno):
+
 # Verifica se o nom informado já existe.
 def existe_aluno(nome):
     #return any(aluno['nome'].lower() == nome.lower() for aluno in alunos)
@@ -171,7 +173,7 @@ def remover_aluno():
     # Percorre a lista de alunos procurando pelo nome informado
     for aluno in alunos:
         # Verifica se o aluno atual corresponde ao aluno pesquisado
-        if aluno['nome'] == aluno_remover:
+        if aluno['nome'].lower() == aluno_remover.lower():
             # Remove o dicionário do aluno encontrado da lista
             alunos.remove(aluno)
 
@@ -294,55 +296,61 @@ def exibir_alunos_aprovados():
     # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")  
 
-# =========================================================
-# MENU PRINCIPAL (INTERFACE DO USUÁRIO)
-# =========================================================
-while True:
-    # Limpa a tela a cada chamada da função
-    limpar_tela()
+# Função principal
+def main():
+    # =========================================================
+    # MENU PRINCIPAL (INTERFACE DO USUÁRIO)
+    # =========================================================
+    while True:
+        # Limpa a tela a cada chamada da função
+        limpar_tela()
 
-    # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("      SISTEMA DE CADASTRO DE ALUNOS")
-    print("=" * 40)
+        # Exibe o cabeçalho da funcionalidade
+        print("\n" + "=" * 40)
+        print("      SISTEMA DE CADASTRO DE ALUNOS")
+        print("=" * 40)
 
-    print("\n[1] Adicionar aluno")
-    print("[2] Listar alunos")
-    print("[3] Pesquisar aluno")
-    print("[4] Remover aluno")
-    print("[5] Alterar aluno")
-    print("[6] Exibir alunos aprovados")
+        print("\n[1] Adicionar aluno")
+        print("[2] Listar alunos")
+        print("[3] Pesquisar aluno")
+        print("[4] Remover aluno")
+        print("[5] Alterar aluno")
+        print("[6] Exibir alunos aprovados")
 
-    print("\n[0] Sair")
-    print("=" * 40)
+        print("\n[0] Sair")
+        print("=" * 40)
 
-    opcao = input("\nEscolha uma opção: ")
+        opcao = input("\nEscolha uma opção: ")
 
-    # Controle das opções escolhidas pelo usuário
-    if opcao == '1':
-        adicionar_aluno()
+        # Controle das opções escolhidas pelo usuário
+        if opcao == '1':
+            adicionar_aluno()
 
-    elif opcao == '2':
-        listar_alunos()
-        
-    elif opcao == '3':
-        pesquisar_aluno()
-        
-    elif opcao == '4':
-        remover_aluno()
-        
-    elif opcao == '5':
-        alterar_aluno()
-        
-    elif opcao == '6':
-        exibir_alunos_aprovados()
+        elif opcao == '2':
+            listar_alunos()
+            
+        elif opcao == '3':
+            pesquisar_aluno()
+            
+        elif opcao == '4':
+            remover_aluno()
+            
+        elif opcao == '5':
+            alterar_aluno()
+            
+        elif opcao == '6':
+            exibir_alunos_aprovados()
 
-    elif opcao == '0':
-        print("\nSaindo...")
-        break
-        
-    else:
-        print("\nOpção inválida! Tente novamente.") 
+        elif opcao == '0':
+            print("\nSaindo...")
+            break
+            
+        else:
+            print("\nOpção inválida! Tente novamente.") 
 
-        # Aguarda o usuário pressionar ENTER antes de retornar ao menu
-        input("\nPressione ENTER para voltar ao menu.") 
+            # Aguarda o usuário pressionar ENTER antes de retornar ao menu
+            input("\nPressione ENTER para voltar ao menu.") 
+
+# Incia o programa
+if __name__ == "__main__":
+    main()
