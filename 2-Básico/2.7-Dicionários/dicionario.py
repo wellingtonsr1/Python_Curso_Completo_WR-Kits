@@ -86,12 +86,45 @@ lista = [{'a': 1, 'b': 2, 'c':3}, {'a': 10, 'B': 2, 'C': 3}]
 #         lista.remove(dic)
 # print(lista)
 
-def busca(num_1):
-    for num in lista:
-        if num['a'] == num_1:
-            return True
+# def busca(num_1):
+#     for num in lista:
+#         if num['a'] == num_1:
+#             return True
             
 
-    return False
+#     return False
 
-print(busca(1))
+# print(busca(1))
+
+aluno = {
+    "nome": "Teste",
+    "bimestres": {
+        "B1": {
+            "n1": 1,
+            "n2": 2,
+            "n3": 3,
+            "n4": 4
+        },
+        "B2": {
+            "n1": 1,
+            "n2": 2,
+            "n3": 3,
+            "n4": 4
+        },
+        "B3": {
+            "n1": 1,
+            "n2": 2,
+            "n3": 3,
+            "n4": 4
+        },
+        "B4": {
+            "n1": 1,
+            "n2": 2,
+            "n3": 3,
+            "n4": 4
+        }
+    }
+}
+
+
+print(aluno['bimestres']['B1'])

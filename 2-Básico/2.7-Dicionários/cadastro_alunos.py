@@ -40,10 +40,6 @@ def adicionar_aluno():
         # Limpa a tela a cada chamada da função
         limpar_tela()
 
-        # Cria um novo dicionário para cada aluno cadastrado.
-        # Isso evita sobrescrever registros anteriores.
-        info_aluno = {}
-
         # Exibe o cabeçalho da funcionalidade
         print("\n" + "=" * 40)
         print("              CADASTRAR")
@@ -58,80 +54,65 @@ def adicionar_aluno():
             # Permite sair do cadastro
             if nome.lower() == 'q': break
 
-            for idx in range(4):
-                # Entrada das notas convertidas para número decimal
-                nota_1_b1+idx = float(input(f"\nInforme a primeira nota do B{idx + 1}..: "))
-                # nota_2_b1 = float(input(f"Informe a segunda nota do B1...: "))
-                # nota_3_b1 = float(input(f"Informe a terceira nota do B1..: "))
-                # nota_4_b1 = float(input(f"Informe a quarta nota do B1....: "))
-
-            # # Entrada das notas convertidas para número decimal
-            # nota_1_b2 = float(input("\nInforme a primeira nota do B2..: "))
-            # nota_2_b2 = float(input("Informe a segunda nota do B2...: "))
-            # nota_3_b2 = float(input("Informe a terceira nota do B2..: "))
-            # nota_4_b2 = float(input("Informe a quarta nota do B2....: "))
-
-            # # Entrada das notas convertidas para número decimal
-            # nota_1_b3 = float(input("\nInforme a primeira nota do B3..: "))
-            # nota_2_b3 = float(input("Informe a segunda nota do B3...: "))
-            # nota_3_b3 = float(input("Informe a terceira nota do B3..: "))
-            # nota_4_b3 = float(input("Informe a quarta nota do B3....: "))
-
-            # # Entrada das notas convertidas para número decimal
-            # nota_1_b4 = float(input("\nInforme a primeira nota do B4..: "))
-            # nota_2_b4 = float(input("Informe a segunda nota do B4...: "))
-            # nota_3_b4 = float(input("Informe a terceira nota do B4..: "))
-            # nota_4_b4 = float(input("Informe a quarta nota do B4....: "))
-
-            # Faz o cálculo da média
-            media_b1 = (nota_1_b1 + nota_2_b1 + nota_3_b1 + nota_4_b1) / 4
-            media_b2 = (nota_1_b2 + nota_2_b2 + nota_3_b2 + nota_4_b2) / 4
-            media_b3 = (nota_1_b3 + nota_2_b3 + nota_3_b3 + nota_4_b3) / 4
-            media_b4 = (nota_1_b4 + nota_2_b4 + nota_3_b4 + nota_4_b4) / 4
-
-            media_final = (media_b1 + media_b2 + media_b3 + media_b4) / 4
-
-            # Faz a verificação, com base na média, se o aluno está aprovado ou não
-            status = 'Aprovado' if  media_final >= MEDIA_MINIMA else 'Reprovado'
-
-            # Armazena os dados do aluno no dicionário
-            info_aluno = {
+            # Cria a estrutura inicial do aluno.
+            # O dicionário 'bimestres' receberá posteriormente as notas
+            # e médias de cada período letivo.
+            aluno = {
                 'nome': nome,
-                'nota_1_b1': nota_1_b1,
-                'nota_2_b1': nota_2_b1,
-                'nota_3_b1': nota_3_b1,
-                'nota_4_b1': nota_4_b1,
-                'media_b1': media_b1,
-
-                'nota_1_b2': nota_1_b2,
-                'nota_2_b2': nota_2_b2,
-                'nota_3_b2': nota_3_b2,
-                'nota_4_b2': nota_4_b2,
-                'media_b2': media_b1,
-
-                'nota_1_b3': nota_1_b3,
-                'nota_2_b3': nota_2_b3,
-                'nota_3_b3': nota_3_b3,
-                'nota_4_b3': nota_4_b3,
-                'media_b3': media_b1,
-
-                'nota_1_b4': nota_1_b4,
-                'nota_2_b4': nota_2_b4,
-                'nota_3_b4': nota_3_b4,
-                'nota_4_b4': nota_4_b4,
-                'media_b4': media_b4,
-
-                'status': status
+                'bimestres': {}
             }
 
-            # Adiciona o aluno na lista principal
-            alunos.append(info_aluno)
+            # Variável acumuladora utilizada para somar as médias dos quatro
+            # bimestres e calcular a média final do aluno.
+            somatorio_medias = 0
+
+            # Percorre os quatro bimestres do ano letivo.
+            for idx in range(4):
+                #Solicita as quatro notas referentes ao bimestre atual.
+                # Os valores são convertidos para float para permitir cálculos.
+                nota_1 = float(input(f"\nInforme a primeira nota do B{idx + 1}..: "))
+                nota_2 = float(input(f"Informe a segunda nota do B{idx + 1}...: "))
+                nota_3 = float(input(f"Informe a terceira nota do B{idx + 1}..: "))
+                nota_4 = float(input(f"Informe a quarta nota do B{idx + 1}....: "))
+
+                # Calcula a média do bimestre atual.
+                media = round((nota_1 + nota_2 + nota_3 + nota_4) / 4, 2)
+
+                # Acumula a média do bimestre para cálculo da média final.
+                somatorio_medias += media
+
+                # Adiciona o bimestre e suas respectivas notas ao dicionário do aluno.
+                # A chave é criada dinamicamente (b1, b2, b3, b4).
+                aluno['bimestres'][f"b{idx + 1}"] = {
+                    'nota_1': nota_1,
+                    'nota_2': nota_2,
+                    'nota_3': nota_3,
+                    'nota_4': nota_4,
+                    'media': media
+                }
+
+            # Calcula a média final considerando os quatro bimestres.
+            media_final = round(somatorio_medias / 4, 2)
+
+            # Armazena a média final no cadastro do aluno.
+            aluno['media_final'] = media_final
+
+            # Define automaticamente a situação do aluno com base na média mínima.
+            aluno['status'] = 'Aprovado' if  media_final >= MEDIA_MINIMA else 'Reprovado'
+
+            # Adiciona o aluno completo à lista principal de alunos cadastrados.
+            alunos.append(aluno)
+
+            # Exibe mensagem de confirmação do cadastro.
+            print(f"\nAluno [{nome}] cadastrado com sucesso!")
 
         else:
-            print(f"[{nome}] já está cadastardo.")
-            input("\nPressione ENTER para voltar ao menu.")
+            print(f"[{nome}] já está cadastrado.")
+        
+        # Aguarda confirmação antes de retornar ao menu.
+        input("\nPressione ENTER para voltar ao menu.")
 
- 
+
 #  Exibe todos os alunos cadastrados no sistema.
 def listar_alunos():
     # Limpa a tela a cada chamada da função
@@ -142,49 +123,49 @@ def listar_alunos():
     print("             LISTA DE ALUNOS")
     print("=" * 40)
 
-    # Verifica se existem alunos cadastrados
-    if not alunos:
-        print("    * Nenhum cadastro encontrado. *")
-    else:
-        # Percorre cada aluno armazenado na lista
-        for aluno in alunos:
-            print(f"\nAluno...: {aluno['nome']}")
+    # # Verifica se existem alunos cadastrados
+    # if not alunos:
+    #     print("    * Nenhum cadastro encontrado. *")
+    # else:
+    #     # Percorre cada aluno armazenado na lista
+    #     for aluno in alunos:
+    #         print(f"\nAluno...: {aluno['nome']}")
 
-            print("\nPrimeiro Bimestre")
-            print("-" * 18)
-            print(f"Nota 1..: {aluno['nota_1_b1']}")
-            print(f"Nota 2..: {aluno['nota_2_b1']}")
-            print(f"Nota 3..: {aluno['nota_3_b1']}")
-            print(f"Nota 4..: {aluno['nota_4_b1']}")
-            print(f"Média B1: {aluno['media_b1']}")
+    #         print("\nPrimeiro Bimestre")
+    #         print("-" * 18)
+    #         print(f"Nota 1..: {aluno['nota_1_b1']}")
+    #         print(f"Nota 2..: {aluno['nota_2_b1']}")
+    #         print(f"Nota 3..: {aluno['nota_3_b1']}")
+    #         print(f"Nota 4..: {aluno['nota_4_b1']}")
+    #         print(f"Média B1: {aluno['media_b1']}")
 
-            print("\nSegundo Bimestre")
-            print("-" * 18)
-            print(f"Nota 1..: {aluno['nota_1_b2']}")
-            print(f"Nota 2..: {aluno['nota_2_b2']}")
-            print(f"Nota 3..: {aluno['nota_3_b2']}")
-            print(f"Nota 4..: {aluno['nota_4_b2']}")
-            print(f"Média B2: {aluno['media_b2']}")
+    #         print("\nSegundo Bimestre")
+    #         print("-" * 18)
+    #         print(f"Nota 1..: {aluno['nota_1_b2']}")
+    #         print(f"Nota 2..: {aluno['nota_2_b2']}")
+    #         print(f"Nota 3..: {aluno['nota_3_b2']}")
+    #         print(f"Nota 4..: {aluno['nota_4_b2']}")
+    #         print(f"Média B2: {aluno['media_b2']}")
 
-            print("\nTerceiro Bimestre")
-            print("-" * 18)
-            print(f"Nota 1..: {aluno['nota_1_b3']}")
-            print(f"Nota 2..: {aluno['nota_2_b3']}")
-            print(f"Nota 3..: {aluno['nota_3_b3']}")
-            print(f"Nota 4..: {aluno['nota_4_b3']}")
-            print(f"Média B3: {aluno['media_b3']}")
+    #         print("\nTerceiro Bimestre")
+    #         print("-" * 18)
+    #         print(f"Nota 1..: {aluno['nota_1_b3']}")
+    #         print(f"Nota 2..: {aluno['nota_2_b3']}")
+    #         print(f"Nota 3..: {aluno['nota_3_b3']}")
+    #         print(f"Nota 4..: {aluno['nota_4_b3']}")
+    #         print(f"Média B3: {aluno['media_b3']}")
 
-            print("\nQuarto Bimestre")
-            print("-" * 18)
-            print(f"Nota 1..: {aluno['nota_1_b4']}")
-            print(f"Nota 2..: {aluno['nota_2_b4']}")
-            print(f"Nota 3..: {aluno['nota_3_b4']}")
-            print(f"Nota 4..: {aluno['nota_4_b4']}")
-            print(f"Média B4: {aluno['media_b4']}")
+    #         print("\nQuarto Bimestre")
+    #         print("-" * 18)
+    #         print(f"Nota 1..: {aluno['nota_1_b4']}")
+    #         print(f"Nota 2..: {aluno['nota_2_b4']}")
+    #         print(f"Nota 3..: {aluno['nota_3_b4']}")
+    #         print(f"Nota 4..: {aluno['nota_4_b4']}")
+    #         print(f"Média B4: {aluno['media_b4']}")
 
-            print(f"\nSituação: {aluno['status']}")
-            print("-" * 40)
-
+    #         print(f"\nSituação: {aluno['status']}")
+    #         print("-" * 40)
+    print(alunos)
     input("\nPressione ENTER para voltar ao menu.")
 
 # Pesquisa um aluno pelo nome informado pelo usuário.
@@ -249,7 +230,7 @@ def remover_aluno():
             alunos.remove(aluno)
 
             # Exibe mensagem confirmando a exclusão
-            print(f"\n* Aluno [ {aluno['nome']} ] removido com sucesso! *")
+            print(f"\n* Aluno [{aluno['nome']}] removido com sucesso! *")
 
             # Indica que a remoção foi realizada
             encontrado = True
