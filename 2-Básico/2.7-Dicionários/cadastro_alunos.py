@@ -251,8 +251,10 @@ def alterar_aluno():
                 aluno['media'] = media
                 aluno['status'] = status
 
+                # Informa, na tela, que o usuário foi removido
                 print(f"\nCadastro do aluno [ {aluno['nome']} ] alterado com sucesso.")
 
+    # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")
 
 # Exibe alunos que atingiram média mínima.
@@ -285,9 +287,11 @@ def exibir_alunos_aprovados():
 
                 encontrado = True
 
+        # Exibe uma mensagem, na tela, informando que não há alunos aprovados.
         if not encontrado:
             print("\n    * Nenhum aluno aprovado encontrado")
 
+    # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")  
 
 # =========================================================
@@ -339,4 +343,6 @@ while True:
         
     else:
         print("\nOpção inválida! Tente novamente.") 
+
+        # Aguarda o usuário pressionar ENTER antes de retornar ao menu
         input("\nPressione ENTER para voltar ao menu.") 
