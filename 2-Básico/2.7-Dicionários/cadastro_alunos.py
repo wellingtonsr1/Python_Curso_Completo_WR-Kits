@@ -18,12 +18,44 @@ MEDIA_MINIMA = 7.0
 # FUNÇÕES DO SISTEMA
 # =========================================================
 
-#def exibir_detalhes_aluno(aluno):
+def calcular_media(n1, n2, n3, n4):
+    # Calcula a média do bimestre atual.
+    media = round((n1 + n2 + n3 + n4) / 4, 2)
+
+    # Acumula a média do bimestre para cálculo da média final.
+    somatorio_medias += media
+
+    # Calcula a média final considerando os quatro bimestres.
+    media_final = round(somatorio_medias / 4, 2)
+
+# Exibe o cabeçalho da funcionalidade
+def exibir_titutlo(texto):
+    print("\n" + "=" * 40)
+    print(f"             {texto}")
+    print("=" * 40)
+
+def exibir_detalhes_aluno():
+    #Percorre cada aluno armazenado na lista
+    for aluno in alunos:
+        print(f"\nAluno...: {aluno['nome']}")
+        for i in range(4):
+            print(f"\n ** {i + 1}º Bimestre **")
+            # Exibe as 4 notas do bimestre atual em uma única linha para economizar espaço
+            notas_str = ""
+            for j in range(4):
+                nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
+                notas_str += f"N{j + 1}: {nota:.1f}  | "
+                media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
+            
+            print(f"    Notas: {notas_str} Média Parcial: {media}")
+        
+        print(f"\nMédia Final..: {aluno['media_final']}")
+        print(f"Situação.....: {aluno['status']}")
+        print("-" * 25)
 
 # Verifica se o nom informado já existe.
 def existe_aluno(nome):
     #return any(aluno['nome'].lower() == nome.lower() for aluno in alunos)
-
     for aluno in alunos:
         if aluno['nome'].lower() == nome.lower():
             return True
@@ -41,9 +73,8 @@ def adicionar_aluno():
         limpar_tela()
 
         # Exibe o cabeçalho da funcionalidade
-        print("\n" + "=" * 40)
-        print("              CADASTRAR")
-        print("=" * 40)
+        exibir_titutlo("CADASTRAR")
+
         print("    *** Digite 'q' pra sair... ***\n")
 
         # Entrada do nome do aluno
@@ -119,31 +150,13 @@ def listar_alunos():
     limpar_tela()
 
     # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("             LISTA DE ALUNOS")
-    print("=" * 40)
+    exibir_titutlo("LISTA DE ALUNOS")
 
     # # Verifica se existem alunos cadastrados
     if not alunos:
          print("    * Nenhum cadastro encontrado. *")
     else:
-        # Percorre cada aluno armazenado na lista
-        for aluno in alunos:
-            print(f"\nAluno...: {aluno['nome']}")
-            for i in range(4):
-                print(f"\n ** {i + 1}º Bimestre **")
-                # Exibe as 4 notas do bimestre atual em uma única linha para economizar espaço
-                notas_str = ""
-                for j in range(4):
-                    nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
-                    notas_str += f"N{j + 1}: {nota:.1f}  | "
-                    media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
-                
-                print(f"    Notas: {notas_str} Média Parcial: {media}")
-            
-            print(f"\nMédia Final..: {aluno['media_final']}")
-            print(f"Situação.....: {aluno['status']}")
-            print("-" * 25)
+        exibir_detalhes_aluno()
 
     input("\nPressione ENTER para voltar ao menu.")
 
@@ -153,9 +166,7 @@ def pesquisar_aluno():
     limpar_tela()
 
     # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("             PESQUISAR ALUNO")
-    print("=" * 40)
+    exibir_titutlo("PESQUISAR ALUNO")
     
     # Verifica se existem alunos cadastrados
     if not alunos:
@@ -164,7 +175,7 @@ def pesquisar_aluno():
         encontrado = False
 
         # Recebe o nome do aluno a ser procurado
-        busca_aluno = input("Infome o aluno que deseja pesquisar: ").strip()
+        busca_aluno = input("Infome o aluno que deseja pesquisar: ").kstrip()
 
         # Percorre todos os alunos cadastrados
         for aluno in alunos:
@@ -191,9 +202,7 @@ def remover_aluno():
     limpar_tela()
 
     # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("             REMOVER ALUNO")
-    print("=" * 40)
+    exibir_titutlo("REMOVER ALUNO")
     
     # Verifica se existem alunos cadastrados
     if not alunos:
@@ -234,10 +243,8 @@ def alterar_aluno():
     limpar_tela()
 
     # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("             ALTERAR ALUNO")
-    print("=" * 40)
-    
+    exibir_titutlo("ALTERAR ALUNO")
+
     # Verifica se existem alunos cadastrados
     if not alunos:
         print("\n    * Nenhum cadastro encontrado. *")
@@ -300,10 +307,8 @@ def exibir_alunos_aprovados():
     limpar_tela()
 
     # Exibe o cabeçalho da funcionalidade
-    print("\n" + "=" * 40)
-    print("             EXIBIR APROVADOS")
-    print("=" * 40)
-    
+    exibir_titutlo("EXIBIR APROVADOS")
+
     # Verifica se existem alunos cadastrados
     if not alunos:
         print("    * Nenhum cadastro encontrado. *")
@@ -341,9 +346,7 @@ def main():
         limpar_tela()
 
         # Exibe o cabeçalho da funcionalidade
-        print("\n" + "=" * 40)
-        print("      SISTEMA DE CADASTRO DE ALUNOS")
-        print("=" * 40)
+        exibir_titutlo("SISTEMA DE CADASTRO DE ALUNOS")
 
         print("\n[1] Adicionar aluno")
         print("[2] Listar alunos")
