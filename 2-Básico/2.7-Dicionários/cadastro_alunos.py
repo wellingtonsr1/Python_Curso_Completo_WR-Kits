@@ -124,48 +124,27 @@ def listar_alunos():
     print("=" * 40)
 
     # # Verifica se existem alunos cadastrados
-    # if not alunos:
-    #     print("    * Nenhum cadastro encontrado. *")
-    # else:
-    #     # Percorre cada aluno armazenado na lista
-    #     for aluno in alunos:
-    #         print(f"\nAluno...: {aluno['nome']}")
+    if not alunos:
+         print("    * Nenhum cadastro encontrado. *")
+    else:
+        # Percorre cada aluno armazenado na lista
+        for aluno in alunos:
+            print(f"\nAluno...: {aluno['nome']}")
+            for i in range(4):
+                print(f"\n ** {i + 1}º Bimestre **")
+                # Exibe as 4 notas do bimestre atual em uma única linha para economizar espaço
+                notas_str = ""
+                for j in range(4):
+                    nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
+                    notas_str += f"N{j + 1}: {nota:.1f}  | "
+                    media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
+                
+                print(f"    Notas: {notas_str} Média Parcial: {media}")
+            
+            print(f"\nMédia Final..: {aluno['media_final']}")
+            print(f"Situação.....: {aluno['status']}")
+            print("-" * 25)
 
-    #         print("\nPrimeiro Bimestre")
-    #         print("-" * 18)
-    #         print(f"Nota 1..: {aluno['nota_1_b1']}")
-    #         print(f"Nota 2..: {aluno['nota_2_b1']}")
-    #         print(f"Nota 3..: {aluno['nota_3_b1']}")
-    #         print(f"Nota 4..: {aluno['nota_4_b1']}")
-    #         print(f"Média B1: {aluno['media_b1']}")
-
-    #         print("\nSegundo Bimestre")
-    #         print("-" * 18)
-    #         print(f"Nota 1..: {aluno['nota_1_b2']}")
-    #         print(f"Nota 2..: {aluno['nota_2_b2']}")
-    #         print(f"Nota 3..: {aluno['nota_3_b2']}")
-    #         print(f"Nota 4..: {aluno['nota_4_b2']}")
-    #         print(f"Média B2: {aluno['media_b2']}")
-
-    #         print("\nTerceiro Bimestre")
-    #         print("-" * 18)
-    #         print(f"Nota 1..: {aluno['nota_1_b3']}")
-    #         print(f"Nota 2..: {aluno['nota_2_b3']}")
-    #         print(f"Nota 3..: {aluno['nota_3_b3']}")
-    #         print(f"Nota 4..: {aluno['nota_4_b3']}")
-    #         print(f"Média B3: {aluno['media_b3']}")
-
-    #         print("\nQuarto Bimestre")
-    #         print("-" * 18)
-    #         print(f"Nota 1..: {aluno['nota_1_b4']}")
-    #         print(f"Nota 2..: {aluno['nota_2_b4']}")
-    #         print(f"Nota 3..: {aluno['nota_3_b4']}")
-    #         print(f"Nota 4..: {aluno['nota_4_b4']}")
-    #         print(f"Média B4: {aluno['media_b4']}")
-
-    #         print(f"\nSituação: {aluno['status']}")
-    #         print("-" * 40)
-    print(alunos)
     input("\nPressione ENTER para voltar ao menu.")
 
 # Pesquisa um aluno pelo nome informado pelo usuário.
