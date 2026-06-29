@@ -195,31 +195,35 @@ def remover_aluno():
     print("             REMOVER ALUNO")
     print("=" * 40)
     
-    # Solicita o nome do aluno que será removido
-    aluno_remover = input("Infome o aluno que deseja remover: ").strip()
+    # Verifica se existem alunos cadastrados
+    if not alunos:
+        print("\n    * Nenhum cadastro encontrado. *")
+    else:
+        # Solicita o nome do aluno que será removido
+        aluno_remover = input("Infome o aluno que deseja remover: ").strip()
 
-     # Variável de controle para verificar se o aluno foi encontrado
-    encontrado = False
+        # Variável de controle para verificar se o aluno foi encontrado
+        encontrado = False
 
-    # Percorre a lista de alunos procurando pelo nome informado
-    for aluno in alunos:
-        # Verifica se o aluno atual corresponde ao aluno pesquisado
-        if aluno['nome'].lower() == aluno_remover.lower():
-            # Remove o dicionário do aluno encontrado da lista
-            alunos.remove(aluno)
+        # Percorre a lista de alunos procurando pelo nome informado
+        for aluno in alunos:
+            # Verifica se o aluno atual corresponde ao aluno pesquisado
+            if aluno['nome'].lower() == aluno_remover.lower():
+                # Remove o dicionário do aluno encontrado da lista
+                alunos.remove(aluno)
 
-            # Exibe mensagem confirmando a exclusão
-            print(f"\n* Aluno [{aluno['nome']}] removido com sucesso! *")
+                # Exibe mensagem confirmando a exclusão
+                print(f"\n* Aluno [{aluno['nome']}] removido com sucesso! *")
 
-            # Indica que a remoção foi realizada
-            encontrado = True
+                # Indica que a remoção foi realizada
+                encontrado = True
 
-            # Encerra o laço após encontrar e remover o aluno
-            break
+                # Encerra o laço após encontrar e remover o aluno
+                break
 
-    # Caso nenhum aluno tenha sido encontrado, informa o usuário
-    if not encontrado:
-        print("\n      * Aluno não encontrado. *")
+        # Caso nenhum aluno tenha sido encontrado, informa o usuário
+        if not encontrado:
+            print("\n      * Aluno não encontrado. *")
 
     # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")
