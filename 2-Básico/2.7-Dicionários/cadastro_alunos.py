@@ -24,12 +24,6 @@ def calcular_media_bimestre(n1, n2, n3, n4):
     # Calcula a média do bimestre atual.
     media = round((n1 + n2 + n3 + n4) / 4, 2)
 
-    # Acumula a média do bimestre para cálculo da média final.
-    #somatorio_medias += media
-
-    # Calcula a média final considerando os quatro bimestres.
-    #media_final = round(somatorio_medias / 4, 2)
-
     return media
 
 # Exibe o cabeçalho da funcionalidade
