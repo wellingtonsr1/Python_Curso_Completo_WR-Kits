@@ -19,9 +19,8 @@ MEDIA_MINIMA = 7.0
 # FUNÇÕES DO SISTEMA
 # =========================================================
 
-def calcular_media_bimestre(n1, n2, n3, n4):
-    
-    # Calcula a média do bimestre atual.
+# Calcula a média do bimestre atual.
+def calcular_media_bimestre(n1, n2, n3, n4): 
     media = round((n1 + n2 + n3 + n4) / 4, 2)
 
     return media
