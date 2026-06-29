@@ -1,0 +1,12 @@
+O Seaborn vem como aditivo ao MatplotLib, proporcionando técnicas simplificados e capacidades para lidar melhor com dados visando análise de dados (data science). Nesta vídeo aula, vamos introduzir o uso do Seaborn e aprender alguns de seus conceitos
+
+
+
+O que você aprenderá nesta videoaula:
+
+O que é o Seaborn
+Gráfico de dispersão com analise de tendência
+Gráfico boxplot para analise estatística
+Gráfico histograma com estimativa de kernel
+Mapa de calor
+Gráfico para analise de pares (pairplot)

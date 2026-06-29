@@ -1,0 +1,8 @@
+Quando uma aplicação esta lenta, precisamos debugar e localizar quais rotinas precisam ser otimizadas. Este processo, é chamado Profiling, e o Python já traz uma biblioteca específica para fazer uma triagem dos tempos que cada função está consumindo ao rodar sua aplicação. Nesta aula, vamos aprender a utilizar a biblioteca Profiling para localizar quais funções estão consumindo mais tempo de máquina para rodar.
+
+
+
+O que você aprenderá nesta aula:"
+
+O que é profiling
+Como realizar profiling em seu software

@@ -9,6 +9,7 @@ import os
 # VARIÁVEL GLOBAL DO SISTEMA
 # =========================================================
 
+
 # Lista principal responsável por armazenar todos os alunos
 # cadastrados no sistema.
 alunos = []
@@ -18,15 +19,18 @@ MEDIA_MINIMA = 7.0
 # FUNÇÕES DO SISTEMA
 # =========================================================
 
-def calcular_media(n1, n2, n3, n4):
+def calcular_media_bimestre(n1, n2, n3, n4):
+    
     # Calcula a média do bimestre atual.
     media = round((n1 + n2 + n3 + n4) / 4, 2)
 
     # Acumula a média do bimestre para cálculo da média final.
-    somatorio_medias += media
+    #somatorio_medias += media
 
     # Calcula a média final considerando os quatro bimestres.
-    media_final = round(somatorio_medias / 4, 2)
+    #media_final = round(somatorio_medias / 4, 2)
+
+    return media
 
 # Exibe o cabeçalho da funcionalidade
 def exibir_titutlo(texto):
@@ -107,7 +111,7 @@ def adicionar_aluno():
                 nota_4 = float(input(f"Informe a quarta nota do B{idx + 1}....: "))
 
                 # Calcula a média do bimestre atual.
-                media = round((nota_1 + nota_2 + nota_3 + nota_4) / 4, 2)
+                media = calcular_media_bimestre(nota_1, nota_2, nota_3, nota_4)
 
                 # Acumula a média do bimestre para cálculo da média final.
                 somatorio_medias += media
@@ -121,7 +125,7 @@ def adicionar_aluno():
                     'nota_4': nota_4,
                     'media': media
                 }
-
+            
             # Calcula a média final considerando os quatro bimestres.
             media_final = round(somatorio_medias / 4, 2)
 
