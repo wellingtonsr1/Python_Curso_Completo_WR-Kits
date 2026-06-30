@@ -18,15 +18,11 @@ MEDIA_MINIMA = 7.0
 # FUNÇÕES DO SISTEMA
 # =========================================================
 
-def calcular_media(n1, n2, n3, n4):
-    # Calcula a média do bimestre atual.
+# Calcula a média do bimestre atual.
+def calcular_media_bimestre(n1, n2, n3, n4): 
     media = round((n1 + n2 + n3 + n4) / 4, 2)
 
-    # Acumula a média do bimestre para cálculo da média final.
-    somatorio_medias += media
-
-    # Calcula a média final considerando os quatro bimestres.
-    media_final = round(somatorio_medias / 4, 2)
+    return media
 
 # Exibe o cabeçalho da funcionalidade
 def exibir_titutlo(texto):
@@ -34,7 +30,26 @@ def exibir_titutlo(texto):
     print(f"             {texto}")
     print("=" * 40)
 
-def exibir_detalhes_aluno():
+# Exibe as informações do Aluno
+def exibir_detalhes_aluno(lista_alunos, nome=None, status=None):
+    alunos = lista_alunos
+
+    if nome:
+        alunos = [
+            aluno for aluno in lista_alunos 
+            if aluno['nome'].lower() == nome.strip().lower()
+        ]
+    elif status:
+        alunos = [
+            aluno for aluno in lista_alunos 
+            if aluno['status'].lower() == "Aprovado".lower()
+        ]
+
+    # Verifica se nenhum aluno foi encontrado
+    if not alunos:
+        print("\n      * Aluno não encontrado. *")
+        return
+    
     #Percorre cada aluno armazenado na lista
     for aluno in alunos:
         print(f"\nAluno...: {aluno['nome']}")
@@ -46,9 +61,9 @@ def exibir_detalhes_aluno():
                 nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
                 notas_str += f"N{j + 1}: {nota:.1f}  | "
                 media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
-            
-            print(f"    Notas: {notas_str} Média Parcial: {media}")
         
+            print(f"    Notas: {notas_str} Média Parcial: {media}")
+    
         print(f"\nMédia Final..: {aluno['media_final']}")
         print(f"Situação.....: {aluno['status']}")
         print("-" * 25)
@@ -107,7 +122,7 @@ def adicionar_aluno():
                 nota_4 = float(input(f"Informe a quarta nota do B{idx + 1}....: "))
 
                 # Calcula a média do bimestre atual.
-                media = round((nota_1 + nota_2 + nota_3 + nota_4) / 4, 2)
+                media = calcular_media_bimestre(nota_1, nota_2, nota_3, nota_4)
 
                 # Acumula a média do bimestre para cálculo da média final.
                 somatorio_medias += media
@@ -121,7 +136,7 @@ def adicionar_aluno():
                     'nota_4': nota_4,
                     'media': media
                 }
-
+            
             # Calcula a média final considerando os quatro bimestres.
             media_final = round(somatorio_medias / 4, 2)
 
@@ -136,7 +151,6 @@ def adicionar_aluno():
 
             # Exibe mensagem de confirmação do cadastro.
             print(f"\nAluno [{nome}] cadastrado com sucesso!")
-
         else:
             print(f"[{nome}] já está cadastrado.")
         
@@ -154,9 +168,9 @@ def listar_alunos():
 
     # # Verifica se existem alunos cadastrados
     if not alunos:
-         print("    * Nenhum cadastro encontrado. *")
+        print("    * Nenhum cadastro encontrado. *")
     else:
-        exibir_detalhes_aluno()
+        exibir_detalhes_aluno(alunos, None, None)
 
     input("\nPressione ENTER para voltar ao menu.")
 
@@ -167,33 +181,16 @@ def pesquisar_aluno():
 
     # Exibe o cabeçalho da funcionalidade
     exibir_titutlo("PESQUISAR ALUNO")
-    
+
     # Verifica se existem alunos cadastrados
     if not alunos:
-        print("\n    * Nenhum cadastro encontrado. *")
+        print("\n    * Nenhum cadastro encontrado. *")   
     else:
-        encontrado = False
-
-        # Recebe o nome do aluno a ser procurado
-        busca_aluno = input("Infome o aluno que deseja pesquisar: ").kstrip()
-
-        # Percorre todos os alunos cadastrados
-        for aluno in alunos:
-            # Compara os nomes ignorando maiúsculas/minúsculas
-            if aluno['nome'].lower() == busca_aluno.lower():
-                print(f"\nAluno.....: {aluno['nome']}")
-                print(f"Nota 1....: {aluno['nota_1']}")
-                print(f"Nota 2....: {aluno['nota_2']}")
-                print(f"Nota 3....: {aluno['nota_3']}")
-                print(f"Nota 4....: {aluno['nota_4']}")
-                print(f"Situação..: {aluno['status']}")
-
-                encontrado = True
-
-        # Caso nenhum aluno seja localizado
-        if not encontrado:
-            print("\n      * Aluno não encontrado. *")
-
+        # # Recebe o nome do aluno a ser procurado
+        busca_aluno = input("Infome o aluno que deseja pesquisar: ").strip()
+        
+        exibir_detalhes_aluno(alunos, busca_aluno, None)
+        
     input("\nPressione ENTER para voltar ao menu.")
 
 # Remove um aluno cadastrado.
@@ -313,25 +310,7 @@ def exibir_alunos_aprovados():
     if not alunos:
         print("    * Nenhum cadastro encontrado. *")
     else:
-        encontrado = False
-
-        # Percorre todos os alunos cadastrados
-        for aluno in alunos:
-            if aluno['status'] == 'Aprovado':
-                print(f"Aluno.....: {aluno['nome']}")
-                print(f"Nota 1....: {aluno['nota_1']}")
-                print(f"Nota 2....: {aluno['nota_2']}")
-                print(f"Nota 3....: {aluno['nota_3']}")
-                print(f"Nota 4....: {aluno['nota_4']}")
-                print(f"Média.....: {aluno['media']}")
-                print(f"Situação..: {aluno['status']}")
-                print("-" * 40)
-
-                encontrado = True
-
-        # Exibe uma mensagem, na tela, informando que não há alunos aprovados.
-        if not encontrado:
-            print("\n    * Nenhum aluno aprovado encontrado")
+        exibir_detalhes_aluno(alunos, None, True)
 
     # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")  
@@ -363,26 +342,19 @@ def main():
         # Controle das opções escolhidas pelo usuário
         if opcao == '1':
             adicionar_aluno()
-
         elif opcao == '2':
             listar_alunos()
-            
         elif opcao == '3':
-            pesquisar_aluno()
-            
+            pesquisar_aluno() 
         elif opcao == '4':
             remover_aluno()
-            
         elif opcao == '5':
             alterar_aluno()
-            
         elif opcao == '6':
             exibir_alunos_aprovados()
-
         elif opcao == '0':
             print("\nSaindo...")
             break
-            
         else:
             print("\nOpção inválida! Tente novamente.") 
 
