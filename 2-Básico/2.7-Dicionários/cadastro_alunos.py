@@ -361,6 +361,6 @@ def main():
             # Aguarda o usuário pressionar ENTER antes de retornar ao menu
             input("\nPressione ENTER para voltar ao menu.") 
 
-# Inicia o programa
+# Função que inicia o programa 
 if __name__ == "__main__":
     main()
