@@ -9,11 +9,9 @@ import os
 # VARIÁVEL GLOBAL DO SISTEMA
 # =========================================================
 
-
 # Lista principal responsável por armazenar todos os alunos
 # cadastrados no sistema.
 alunos = []
-
 MEDIA_MINIMA = 7.0
 
 # =========================================================

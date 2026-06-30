@@ -179,18 +179,25 @@ alunos = [
 
 def exibir_detalhes_aluno(lista_alunos, nome=None, status=None):
     alunos_exibir = lista_alunos
-    #print(lista_alunos)
+   
     if nome:
-        alunos_exibir = [
-            aluno for aluno in lista_alunos 
-            if aluno['nome'].lower() == nome.strip().lower()
-        ]
-        print(nome)
+        #alunos_exibir = []
+        # alunos_exibir = [
+        #     aluno for aluno in lista_alunos 
+        #     if aluno['nome'].lower() == nome.strip().lower()
+        # ]
+        for aluno in lista_alunos:
+            if aluno['nome'].lower() == nome.strip().lower():
+                alunos.append(aluno)
     elif status:
-        alunos_exibir = [
-            aluno for aluno in lista_alunos 
-            if aluno['status'].lower() == "Aprovado".lower()
-        ]
+        alunos_exibir = []
+        # alunos_exibir = [
+        #     aluno for aluno in lista_alunos 
+        #     if aluno['status'].lower() == "Aprovado".lower()
+        # ]
+        for aluno in lista_alunos:
+            if aluno['status'].lower() == "Aprovado".lower():
+                alunos.append(aluno)
 
     #Percorre cada aluno armazenado na lista
     for aluno in alunos_exibir:
@@ -215,4 +222,4 @@ nome = "Carlos Oliveira"
 aprovado = False
 alunos
 
-exibir_detalhes_aluno(alunos, aprovado)
+exibir_detalhes_aluno(alunos, "Carlos Oliveira", None)
