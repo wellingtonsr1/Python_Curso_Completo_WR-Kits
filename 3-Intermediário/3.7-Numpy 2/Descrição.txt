@@ -1,0 +1,8 @@
+Seguindo adiante em nossos estudos de Numpy, vamos ir mais a fundo no estudo de slicing para seleção de dados em matrizes e explorar mais algumas funções de conversão de matrizes no Numpy
+
+
+
+O que você aprenderá nesta aula:
+
+Slicing avançado
+Conversão de array
