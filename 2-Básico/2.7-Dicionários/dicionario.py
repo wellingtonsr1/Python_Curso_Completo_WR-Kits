@@ -130,103 +130,89 @@ lista = [{'a': 1, 'b': 2, 'c':3}, {'a': 10, 'B': 2, 'C': 3}]
 # print(aluno['bimestres']['B1'])
 
 
-def soma(a, b, c):
-    d = a + b + c
-    e = d/ 3
+# def soma(a, b, c):
+#     d = a + b + c
+#     e = d/ 3
 
-    return d, e
+#     return d, e
 
-r1, r2 = soma(10, 20, 30)
-print(f"Soma: {r1} Média: {r2}")
+# r1, r2 = soma(10, 20, 30)
+# print(f"Soma: {r1} Média: {r2}")
 
 
+alunos = [
+    {
+        "nome": "Ana Silva",
+        "bimestres": {
+            "b1": {"nota_1": 8.0, "nota_2": 7.5, "nota_3": 9.0, "nota_4": 8.5, "media": 8.25},
+            "b2": {"nota_1": 7.0, "nota_2": 8.0, "nota_3": 8.5, "nota_4": 9.0, "media": 8.13},
+            "b3": {"nota_1": 9.0, "nota_2": 9.5, "nota_3": 10.0, "nota_4": 8.5, "media": 9.25},
+            "b4": {"nota_1": 8.0, "nota_2": 8.5, "nota_3": 9.0, "nota_4": 9.5, "media": 8.75}
+        },
+        "media_final": 8.60,
+        "status": "Aprovado"
+    },
+    {
+        "nome": "Bruno Santos",
+        "bimestres": {
+            "b1": {"nota_1": 4.0, "nota_2": 5.0, "nota_3": 3.5, "nota_4": 4.5, "media": 4.25},
+            "b2": {"nota_1": 3.0, "nota_2": 4.0, "nota_3": 5.0, "nota_4": 3.5, "media": 3.88},
+            "b3": {"nota_1": 5.0, "nota_2": 4.5, "nota_3": 4.0, "nota_4": 5.5, "media": 4.75},
+            "b4": {"nota_1": 2.0, "nota_2": 3.0, "nota_3": 4.0, "nota_4": 3.0, "media": 3.00}
+        },
+        "media_final": 3.97,
+        "status": "Reprovado"
+    },
+    {
+        "nome": "Carlos Oliveira",
+        "bimestres": {
+            "b1": {"nota_1": 6.0, "nota_2": 6.5, "nota_3": 7.0, "nota_4": 6.0, "media": 6.38},
+            "b2": {"nota_1": 5.5, "nota_2": 6.0, "nota_3": 7.0, "nota_4": 6.5, "media": 6.25},
+            "b3": {"nota_1": 7.0, "nota_2": 7.5, "nota_3": 6.5, "nota_4": 8.0, "media": 7.25},
+            "b4": {"nota_1": 6.0, "nota_2": 6.5, "nota_3": 7.0, "nota_4": 7.5, "media": 6.75}
+        },
+        "media_final": 6.66,
+        "status": "Aprovado"
+    }
+]
 
-def calcular_media_bimestre(n1, n2, n3, n4):
-    
-    # Calcula a média do bimestre atual.
-    media = round((n1 + n2 + n3 + n4) / 4, 2)
 
-    # Acumula a média do bimestre para cálculo da média final.
-    #somatorio_medias += media
+def exibir_detalhes_aluno(lista_alunos, nome=None, status=None):
+    alunos_exibir = lista_alunos
+    #print(lista_alunos)
+    if nome:
+        alunos_exibir = [
+            aluno for aluno in lista_alunos 
+            if aluno['nome'].lower() == nome.strip().lower()
+        ]
+        print(nome)
+    elif status:
+        alunos_exibir = [
+            aluno for aluno in lista_alunos 
+            if aluno['status'].lower() == "Aprovado".lower()
+        ]
 
-    # Calcula a média final considerando os quatro bimestres.
-    #media_final = round(somatorio_medias / 4, 2)
-
-    return media
-
-# Realiza o cadastro de um novo aluno.
-def adicionar_aluno():  
-    while True:
-        # Limpa a tela a cada chamada da função
-        limpar_tela()
-
-        # Exibe o cabeçalho da funcionalidade
-        exibir_titutlo("CADASTRAR")
-
-        print("    *** Digite 'q' pra sair... ***\n")
-
-        # Entrada do nome do aluno
-        nome = input("Informe o nome do aluno........: ").strip()
-
-        # Faz uma checagem se o nome informado já existe.
-        if not existe_aluno(nome):
-            # Permite sair do cadastro
-            if nome.lower() == 'q': break
-
-            # Cria a estrutura inicial do aluno.
-            # O dicionário 'bimestres' receberá posteriormente as notas
-            # e médias de cada período letivo.
-            aluno = {
-                'nome': nome,
-                'bimestres': {}
-            }
-
-            # Variável acumuladora utilizada para somar as médias dos quatro
-            # bimestres e calcular a média final do aluno.
-            somatorio_medias = 0
-
-            # Percorre os quatro bimestres do ano letivo.
-            for idx in range(4):
-                #Solicita as quatro notas referentes ao bimestre atual.
-                # Os valores são convertidos para float para permitir cálculos.
-                nota_1 = float(input(f"\nInforme a primeira nota do B{idx + 1}..: "))
-                nota_2 = float(input(f"Informe a segunda nota do B{idx + 1}...: "))
-                nota_3 = float(input(f"Informe a terceira nota do B{idx + 1}..: "))
-                nota_4 = float(input(f"Informe a quarta nota do B{idx + 1}....: "))
-
-                # Calcula a média do bimestre atual.
-                media = calcular_media_bimestre(nota_1, nota_2, nota_3, nota_4)
-
-                # Acumula a média do bimestre para cálculo da média final.
-                somatorio_medias += media
-
-                # Adiciona o bimestre e suas respectivas notas ao dicionário do aluno.
-                # A chave é criada dinamicamente (b1, b2, b3, b4).
-                aluno['bimestres'][f"b{idx + 1}"] = {
-                    'nota_1': nota_1,
-                    'nota_2': nota_2,
-                    'nota_3': nota_3,
-                    'nota_4': nota_4,
-                    'media': media
-                }
-            
-            # Calcula a média final considerando os quatro bimestres.
-            media_final = round(somatorio_medias / 4, 2)
-
-            # Armazena a média final no cadastro do aluno.
-            aluno['media_final'] = media_final
-
-            # Define automaticamente a situação do aluno com base na média mínima.
-            aluno['status'] = 'Aprovado' if  media_final >= MEDIA_MINIMA else 'Reprovado'
-
-            # Adiciona o aluno completo à lista principal de alunos cadastrados.
-            alunos.append(aluno)
-
-            # Exibe mensagem de confirmação do cadastro.
-            print(f"\nAluno [{nome}] cadastrado com sucesso!")
-
-        else:
-            print(f"[{nome}] já está cadastrado.")
+    #Percorre cada aluno armazenado na lista
+    for aluno in alunos_exibir:
+        print(f"\nAluno...: {aluno['nome']}")
+        for i in range(4):
+            print(f"\n ** {i + 1}º Bimestre **")
+            # Exibe as 4 notas do bimestre atual em uma única linha para economizar espaço
+            notas_str = ""
+            for j in range(4):
+                nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
+                notas_str += f"N{j + 1}: {nota:.1f}  | "
+                media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
         
-        # Aguarda confirmação antes de retornar ao menu.
-        input("\nPressione ENTER para voltar ao menu.")
+            print(f"    Notas: {notas_str} Média Parcial: {media}")
+
+        print(f"\nMédia Final..: {aluno['media_final']}")
+        print(f"Situação.....: {aluno['status']}")
+        print("-" * 25)
+
+
+nome = "Carlos Oliveira"
+aprovado = False
+alunos
+
+exibir_detalhes_aluno(alunos, aprovado)

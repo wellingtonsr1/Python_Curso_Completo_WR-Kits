@@ -13,6 +13,7 @@ import os
 # Lista principal responsável por armazenar todos os alunos
 # cadastrados no sistema.
 alunos = []
+
 MEDIA_MINIMA = 7.0
 
 # =========================================================
@@ -31,7 +32,21 @@ def exibir_titutlo(texto):
     print(f"             {texto}")
     print("=" * 40)
 
-def exibir_detalhes_aluno():
+def exibir_detalhes_aluno(lista_alunos, nome=None, status=None):
+    alunos = lista_alunos
+    
+    if nome:
+        alunos = [
+            aluno for aluno in lista_alunos 
+            if aluno['nome'].lower() == nome.strip().lower()
+        ]
+
+    elif status:
+        alunos = [
+            aluno for aluno in lista_alunos 
+            if aluno['status'].lower() == "Aprovado".lower()
+        ]
+
     #Percorre cada aluno armazenado na lista
     for aluno in alunos:
         print(f"\nAluno...: {aluno['nome']}")
@@ -43,9 +58,9 @@ def exibir_detalhes_aluno():
                 nota = aluno['bimestres'][f'b{i + 1}'][f'nota_{j + 1}']
                 notas_str += f"N{j + 1}: {nota:.1f}  | "
                 media = f"{aluno['bimestres'][f'b{i + 1}']['media']}"
-            
-            print(f"    Notas: {notas_str} Média Parcial: {media}")
         
+            print(f"    Notas: {notas_str} Média Parcial: {media}")
+    
         print(f"\nMédia Final..: {aluno['media_final']}")
         print(f"Situação.....: {aluno['status']}")
         print("-" * 25)
@@ -153,7 +168,7 @@ def listar_alunos():
     if not alunos:
          print("    * Nenhum cadastro encontrado. *")
     else:
-        exibir_detalhes_aluno()
+        exibir_detalhes_aluno(alunos, None, None)
 
     input("\nPressione ENTER para voltar ao menu.")
 
@@ -164,33 +179,24 @@ def pesquisar_aluno():
 
     # Exibe o cabeçalho da funcionalidade
     exibir_titutlo("PESQUISAR ALUNO")
-    
+
+    #encontrado = False
+
     # Verifica se existem alunos cadastrados
     if not alunos:
         print("\n    * Nenhum cadastro encontrado. *")
     else:
-        encontrado = False
+        # # Recebe o nome do aluno a ser procurado
+        busca_aluno = input("Infome o aluno que deseja pesquisar: ").strip()
+        
+        exibir_detalhes_aluno(alunos, busca_aluno, None)
 
-        # Recebe o nome do aluno a ser procurado
-        busca_aluno = input("Infome o aluno que deseja pesquisar: ").kstrip()
-
-        # Percorre todos os alunos cadastrados
-        for aluno in alunos:
-            # Compara os nomes ignorando maiúsculas/minúsculas
-            if aluno['nome'].lower() == busca_aluno.lower():
-                print(f"\nAluno.....: {aluno['nome']}")
-                print(f"Nota 1....: {aluno['nota_1']}")
-                print(f"Nota 2....: {aluno['nota_2']}")
-                print(f"Nota 3....: {aluno['nota_3']}")
-                print(f"Nota 4....: {aluno['nota_4']}")
-                print(f"Situação..: {aluno['status']}")
-
-                encontrado = True
-
-        # Caso nenhum aluno seja localizado
-        if not encontrado:
-            print("\n      * Aluno não encontrado. *")
-
+        #encontrado = True
+    
+    # # Caso nenhum aluno seja localizado
+    # if not encontrado:
+    #     print("\n      * Aluno não encontrado. *")
+        
     input("\nPressione ENTER para voltar ao menu.")
 
 # Remove um aluno cadastrado.
@@ -310,25 +316,13 @@ def exibir_alunos_aprovados():
     if not alunos:
         print("    * Nenhum cadastro encontrado. *")
     else:
-        encontrado = False
+        #encontrado = False
 
-        # Percorre todos os alunos cadastrados
-        for aluno in alunos:
-            if aluno['status'] == 'Aprovado':
-                print(f"Aluno.....: {aluno['nome']}")
-                print(f"Nota 1....: {aluno['nota_1']}")
-                print(f"Nota 2....: {aluno['nota_2']}")
-                print(f"Nota 3....: {aluno['nota_3']}")
-                print(f"Nota 4....: {aluno['nota_4']}")
-                print(f"Média.....: {aluno['media']}")
-                print(f"Situação..: {aluno['status']}")
-                print("-" * 40)
-
-                encontrado = True
+        exibir_detalhes_aluno(alunos, None, True)
 
         # Exibe uma mensagem, na tela, informando que não há alunos aprovados.
-        if not encontrado:
-            print("\n    * Nenhum aluno aprovado encontrado")
+        # if not encontrado:
+        #     print("\n    * Nenhum aluno aprovado encontrado")
 
     # Aguarda o usuário pressionar ENTER antes de retornar ao menu
     input("\nPressione ENTER para voltar ao menu.")  
