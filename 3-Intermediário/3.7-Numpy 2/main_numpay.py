@@ -19,6 +19,7 @@ arr3 = np.array([
      [9, 10, 11, 0, 1, 2]
 ])
 
+
 print("\nArray Original")
 print(arr3)
 
