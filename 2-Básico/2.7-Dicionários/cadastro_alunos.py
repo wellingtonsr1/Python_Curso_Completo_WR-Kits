@@ -39,7 +39,7 @@ def exibir_detalhes_aluno(lista_alunos, nome=None, status=None):
             aluno for aluno in lista_alunos 
             if aluno['nome'].lower() == nome.strip().lower()
         ]
-    elif status:
+    if status:
         alunos = [
             aluno for aluno in lista_alunos 
             if aluno['status'].lower() == "Aprovado".lower()
