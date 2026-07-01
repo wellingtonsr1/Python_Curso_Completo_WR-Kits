@@ -1,0 +1,20 @@
+O Pandas é uma biblioteca para Python concebida para 
+uso em Ciência de Dados, que permite a criação e 
+manipulação de Data Frames. Um DataFrame, acaba 
+sendo como uma tabela de um banco de dados, 
+permitindo manipulação, inserção e remoção de 
+dados de forma eficiente e rápida, portanto, 
+o Pandas pode ser aplicado também no desenvol
+vimento de softwares que fazem uso de banco de 
+dados como uma forma simples e direta de manipulação 
+de informação carregada a partir de um DB, inclusive 
+para tratar estes dados antes de envia-los/salva-los de 
+volta no DB.
+
+
+
+O que você aprenderá nesta videoaula:
+
+O que é o Pandas
+Conceitos básicos
+Comandos básicos

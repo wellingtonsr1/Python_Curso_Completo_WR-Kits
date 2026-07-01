@@ -44,3 +44,20 @@ arr4 = np.ones(shape=(3, 3, 4), dtype=np.int16)
 print(arr4)
 
 print(arr4.dtype.name)
+
+arr5 = np.random.randint(10, size=6)
+arr6 = np.random.randint(10, size=(3, 4))
+arr7 = np.random.randint(10, size=(3, 4, 5))
+
+print("\n *** arr5 ***")
+print(arr5)
+
+print("\n *** arr6 ***")
+print(arr6)
+
+print("\n *** arr7 ***")
+print(arr7)
+
+print("\nConvertendo tipo do array")
+arr7 = np.array(arr7, dtype=float)
+print(arr7)

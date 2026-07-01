@@ -1,0 +1,8 @@
+Finalizando nossos estudos de Numpy, vamos aprender a utilizar os metodos arrange e reshape para reorganizar nosso array, alterando assim sua disposição.
+
+
+
+O que você aprenderá nesta aula:
+
+Metodo arrange
+Metodo reshape
